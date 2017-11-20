@@ -1,0 +1,41 @@
+{
+  "name": "browser-sync",
+  "version": "1.0.0",
+  "description": "Hópverkefni 2 í Vefforritun 1 haust 2017",
+  "main": "index.js",
+  "scripts": {
+    "browser-sync": "browser-sync start --server --files index.html styles.css scripts.js",
+    "sass": "node-sass styles.scss styles.css -w",
+    "lint": "stylelint *.scss scss/*.scss --syntax scss",
+    "stylelint": "stylelint *.scss scss/*.scss --syntax scss",
+    "eslint": "eslint *.js",
+    "babel": "babel script.js --watch --out-file script-compiled.js --source-maps",
+    "dev": "npm-run-all --parallel sass babel browser-sync"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fridasnaedis/Hopverkefni2.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fridasnaedis/Hopverkefni2/issues"
+  },
+  "homepage": "https://github.com/fridasnaedis/Hopverkefni2#readme",
+  "dependencies": {
+    "browser-sync": "^2.18.13",
+    "node-sass": "^4.7.1",
+    "npm-run-all": "^4.1.1",
+    "stylelint": "^8.1.1",
+    "stylelint-config-primer": "^2.1.0",
+    "babel-cli": "6.26.0",
+    "babel-eslint": "8.0.1",
+    "babel-preset-env": "1.6.1",
+    "eslint": "4.9.0",
+    "eslint-config-airbnb-base": "12.1.0",
+    "eslint-plugin-import": "2.8.0"
+  },
+  "devDependencies": {
+    "npm-run-all": "^4.1.2"
+  }
+}
