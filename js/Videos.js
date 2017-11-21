@@ -4,8 +4,6 @@ class Videos {
     this.player = document.querySelector('.player');
   }
 
-
-
   load() {
     console.log('Testy test :)');
     const request = new XMLHttpRequest();
@@ -24,7 +22,7 @@ class Videos {
 
   createCategories(data) {
     for(let i = 0; i < data.categories.length; i++){
-      console.log(data.categories[i].title)
+      console.log(data.categories[i].title);
       const categoryTitle = data.categories[i].title;
       const categoryVideos = data.categories[i].videos;
       const category = document.createElement('div');
@@ -39,13 +37,3 @@ class Videos {
 
 
 }
-
-
-
-
-
-document.addEventListener('DOMContentLoaded', () => {
-  console.log('Wowsa');
-  const videos = new Videos();
-  videos.load();
-});

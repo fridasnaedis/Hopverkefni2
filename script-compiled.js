@@ -48,9 +48,11 @@ var Videos = function () {
 
   return Videos;
 }();
+'use strict';
 
 document.addEventListener('DOMContentLoaded', function () {
-  console.log('Wowsa');
+  console.log('I AM KET');
+  //console.log('Wowsa');
   var videos = new Videos();
   videos.load();
 });
