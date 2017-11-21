@@ -32,14 +32,15 @@ class Videos {
       const titleNode = document.createElement('h2');
       titleNode.appendChild(document.createTextNode(categoryTitle));
       category.appendChild(titleNode);
-      createVideos(data, currCategory);
+      createVideos(data);
 
       this.cardlists.appendChild(category);
     }
   }
 
 
-  createVideos(data, currCategory){
+  createVideos(data){
+    const currCategory = data.categories[i];
     for (let i = 0; i < currCategory.videos.length; i++){
       console.log(data.videos[currCategory.videos[i]]);
       const videoId = currCategory.videos[i];
