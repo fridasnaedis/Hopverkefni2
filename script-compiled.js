@@ -31,17 +31,34 @@ var Videos = function () {
   }, {
     key: 'createCategories',
     value: function createCategories(data) {
-      for (var i = 0; i < data.categories.length; i++) {
-        console.log(data.categories[i].title);
-        var categoryTitle = data.categories[i].title;
-        var categoryVideos = data.categories[i].videos;
+      for (var _i = 0; _i < data.categories.length; _i++) {
+        console.log(data.categories[_i].title);
+        var categoryTitle = data.categories[_i].title;
+        var categoryVideos = data.categories[_i].videos;
         var category = document.createElement('div');
         category.classList.add('.cardlist');
         var titleNode = document.createElement('h2');
         titleNode.appendChild(document.createTextNode(categoryTitle));
         category.appendChild(titleNode);
+        createVideos(data);
 
         this.cardlists.appendChild(category);
+      }
+    }
+  }, {
+    key: 'createVideos',
+    value: function createVideos(data) {
+      var currCategory = data.categories[i];
+      for (var _i2 = 0; _i2 < currCategory.videos.length; _i2++) {
+        console.log(data.videos[currCategory.videos[_i2]]);
+        var videoId = currCategory.videos[_i2];
+        console.log('id : ' + videoId);
+        var videoTitle = data.videos[videoId].title;
+        console.log('Title : ' + videoTitle);
+        var videoAge = data.videos[videoId].created;
+        console.log('Age : ' + videoAge);
+        var videoPoster = data.videos[videoId].poster;
+        console.log('poster : ' + videoPoster);
       }
     }
   }]);
