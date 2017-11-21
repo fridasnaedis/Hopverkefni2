@@ -1,3 +1,4 @@
+"use strict";
 'use strict';
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -21,22 +22,6 @@ var Videos = function () {
   }
 
   _createClass(Videos, [{
-    key: 'load',
-    value: function load() {
-      console.log('Testy test :)');
-      var request = new XMLHttpRequest();
-      request.open('GET', './videos.json', true);
-
-      var parent = this;
-
-      request.onload = function () {
-        var result = JSON.parse(request.response);
-        parent.createCategories(result);
-      };
-
-      request.send();
-    }
-  }, {
     key: 'createCategories',
     value: function createCategories(data) {
       for (var _i = 0; _i < data.categories.length; _i++) {
@@ -48,10 +33,26 @@ var Videos = function () {
         var titleNode = document.createElement('h2');
         titleNode.appendChild(document.createTextNode(categoryTitle));
         category.appendChild(titleNode);
-        createVideos(data);
+        this.createVideos(data);
 
         this.cardlists.appendChild(category);
       }
+    }
+  }, {
+    key: 'load',
+    value: function load() {
+      var _this = this;
+
+      console.log('Testy test :)');
+      var request = new XMLHttpRequest();
+      request.open('GET', './videos.json', true);
+
+      request.onload = function () {
+        _this.data = JSON.parse(request.response);
+        _this.createCategories(_this.data);
+      };
+
+      request.send();
     }
   }, {
     key: 'createVideos',
