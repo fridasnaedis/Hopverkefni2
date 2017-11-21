@@ -1,3 +1,11 @@
+'use strict';
+
+document.addEventListener('DOMContentLoaded', function () {
+  console.log('I AM KET');
+  //console.log('Wowsa');
+  var videos = new Videos();
+  videos.load();
+});
 "use strict";
 'use strict';
 
@@ -66,13 +74,5 @@ var Videos = function () {
 
   return Videos;
 }();
-'use strict';
-
-document.addEventListener('DOMContentLoaded', function () {
-  console.log('I AM KET');
-  //console.log('Wowsa');
-  var videos = new Videos();
-  videos.load();
-});
 
 //# sourceMappingURL=script-compiled.js.map
