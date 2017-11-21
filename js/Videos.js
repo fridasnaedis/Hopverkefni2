@@ -4,22 +4,6 @@ class Videos {
     this.player = document.querySelector('.player');
   }
 
-  load() {
-    console.log('Testy test :)');
-    const request = new XMLHttpRequest();
-    request.open('GET', './videos.json',true);
-
-    const parent = this;
-
-    request.onload = function() {
-      const result = JSON.parse(request.response);
-      parent.createCategories(result);
-    };
-
-    request.send();
-
-  }
-
   createCategories(data) {
     for(let i = 0; i < data.categories.length; i++){
       console.log(data.categories[i].title);
@@ -30,11 +14,27 @@ class Videos {
       const titleNode = document.createElement('h2');
       titleNode.appendChild(document.createTextNode(categoryTitle));
       category.appendChild(titleNode);
-      createVideos(data);
+      this.createVideos(data);
 
       this.cardlists.appendChild(category);
     }
   }
+
+  load() {
+    console.log('Testy test :)');
+    const request = new XMLHttpRequest();
+    request.open('GET', './videos.json',true);
+
+    request.onload = () => {
+      this.data = JSON.parse(request.response);
+      this.createCategories(this.data);
+    };
+
+    request.send();
+
+  }
+
+
 
 
   createVideos(data){
