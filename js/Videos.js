@@ -122,23 +122,41 @@ const years = Math.floor(days/365);
 const fyrir = 'Fyrir ';
 
 if(years > 0){
-	return fyrir.concat(years.toString().concat(' ári/árum síðan'));
-
+  if (years === 1){
+    return fyrir.concat(years.toString().concat(' ári síðan'));
+  }else {
+	   return fyrir.concat(years.toString().concat(' árum síðan'));
+  }
 } else if (months > 0){
-	return fyrir.concat(months.toString().concat(' mánuði/mánuðum síðan'));
-
+  if (months === 1){
+    return fyrir.concat(months.toString().concat(' mánuði síðan'));
+  }else {
+	   return fyrir.concat(months.toString().concat(' mánuðum síðan'));
+  }
 } else if (weeks > 0){
-	return fyrir.concat(weeks.toString().concat(' viku/vikum síðan'));
-fyrir
+  if (weeks === 1){
+    return fyrir.concat(weeks.toString().concat(' viku síðan'));
+  }else {
+	   return fyrir.concat(weeks.toString().concat(' vikum síðan'));
+  }
 } else if (days > 0){
-	return fyrir.concat(days.toString().concat(' degi/dögum síðan'));
-
+  if (days === 1){
+    return fyrir.concat(days.toString().concat(' degi síðan'));
+  }else {
+	   return fyrir.concat(days.toString().concat(' dögum síðan'));
+  }
 } else if (hours > 0){
-	return fyrir.concat(hours.concat(' klukustund/klukkustundum síðan'));
-
+  if (hours === 1){
+    return fyrir.concat(hours.concat(' klukustund síðan'));
+  }else {
+	   return fyrir.concat(hours.concat(' klukkustundum síðan'));
+  }
 } else {
-	return fyrir.concat(minutes.concat(' mínútu/mínútum síðan'));
-}
+  if (minutes === 1){
+    return fyrir.concat(minutes.concat(' mínútu síðan'));
+  }else {
+	   return fyrir.concat(minutes.concat(' mínútum síðan'));
+}}
 
   }
 
