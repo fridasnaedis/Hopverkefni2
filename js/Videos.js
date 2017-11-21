@@ -64,6 +64,7 @@ class Videos {
 
       const videoCard = document.createElement('div');
       videoCard.classList.add('card');
+      videoCard.setAttribute('id', videoId+1)
 
       const videoPoster = document.createElement('div');
       videoPoster.classList.add('card__videoPoster');

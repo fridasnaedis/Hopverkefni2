@@ -1,9 +1,15 @@
 .card {
 
-  max-width: 470px;
+
   display: inline-block;
   width: 100%;
-  min-width: 470px;
+  max-width: auto;
+  min-width: auto;
+
+  @media (min-width: 999px) {
+    max-width: 470px;
+    min-width: 470px;
+  }
 
   &__videoPoster {
     width: 100%;
@@ -40,6 +46,7 @@
     padding-bottom: 20px;
     max-width: 100%;
   }
+
 
 
 }
