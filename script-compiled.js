@@ -1,4 +1,3 @@
-"use strict";
 'use strict';
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -7,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var videos = new Videos();
   videos.load();
 });
+"use strict";
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -17,25 +17,35 @@ var Videos = function () {
   function Videos() {
     _classCallCheck(this, Videos);
 
-    this.cardlists = document.querySelector('.cardlists');
+    this.categories = document.querySelector('.categories');
     this.player = document.querySelector('.player');
   }
 
   _createClass(Videos, [{
     key: 'createCategories',
     value: function createCategories(data) {
-      for (var _i = 0; _i < data.categories.length; _i++) {
-        console.log(data.categories[_i].title);
-        var categoryTitle = data.categories[_i].title;
-        var categoryVideos = data.categories[_i].videos;
+      for (var i = 0; i < data.categories.length; i++) {
+        var categoryTitle = data.categories[i].title;
+        var categoryVideos = data.categories[i].videos;
         var category = document.createElement('div');
-        category.classList.add('.cardlist');
+        category.classList.add('.category');
         var titleNode = document.createElement('h2');
         titleNode.appendChild(document.createTextNode(categoryTitle));
         category.appendChild(titleNode);
-        this.createVideos(data);
 
-        this.cardlists.appendChild(category);
+        var cardlist = document.createElement('div');
+        cardlist.classList.add('.cardlist');
+        category.appendChild(cardlist);
+
+        var currCategory = data.categories[i].videos;
+
+        for (var j = 0; j < currCategory.length; j++) {
+          var videoId = currCategory[j] - 1;
+          var currVideo = this.createVideos(data, videoId);
+          cardlist.appendChild(currVideo);
+        }
+
+        this.categories.appendChild(category);
       }
     }
   }, {
@@ -56,19 +66,62 @@ var Videos = function () {
     }
   }, {
     key: 'createVideos',
-    value: function createVideos(data) {
-      var currCategory = data.categories[i];
-      for (var _i2 = 0; _i2 < currCategory.videos.length; _i2++) {
-        console.log(data.videos[currCategory.videos[_i2]]);
-        var videoId = currCategory.videos[_i2];
-        console.log('id : ' + videoId);
-        var videoTitle = data.videos[videoId].title;
-        console.log('Title : ' + videoTitle);
-        var videoAge = data.videos[videoId].created;
-        console.log('Age : ' + videoAge);
-        var videoPoster = data.videos[videoId].poster;
-        console.log('poster : ' + videoPoster);
-      }
+    value: function createVideos(data, videoId) {
+
+      console.log('id : ' + videoId);
+      var videoName = data.videos[videoId].title;
+      console.log('Title : ' + videoName);
+      var videoDuration = data.videos[videoId].duration;
+      console.log('duration : ' + videoDuration);
+      var videoAge = data.videos[videoId].created;
+      console.log('Age : ' + videoAge);
+      var videoImgUrl = data.videos[videoId].poster;
+      console.log('poster : ' + videoImgUrl);
+
+      var videoCard = document.createElement('div');
+      videoCard.classList.add('.card');
+
+      var videoPoster = document.createElement('div');
+      videoPoster.classList.add('.videoPoster');
+      videoCard.appendChild(videoPoster);
+
+      var videoImg = document.createElement('img');
+      videoImg.src = videoImgUrl;
+      videoPoster.appendChild(videoImg);
+
+      var videoLength = document.createElement('div');
+      var lengthNode = document.createTextNode(this.parseLength(videoDuration));
+      videoLength.appendChild(lengthNode);
+      videoPoster.appendChild(videoLength);
+
+      var videoDescription = document.createElement('div');
+      videoDescription.classList.add('.videoDescription');
+      videoCard.appendChild(videoDescription);
+
+      var videoTitle = document.createElement('h3');
+      videoTitle.classList.add('.videoTitle');
+      videoTitle.appendChild(document.createTextNode(videoName));
+      videoDescription.appendChild(videoTitle);
+
+      var videoDate = document.createElement('p');
+      videoDate.classList.add('.videoDate');
+      var dateNode = document.createTextNode(this.parseDate(videoAge));
+      videoDate.appendChild(dateNode);
+      videoDescription.appendChild(videoDate);
+
+      return videoCard;
+    }
+  }, {
+    key: 'parseLength',
+    value: function parseLength(duration) {
+      // Fríða lagar
+      return duration;
+    }
+  }, {
+    key: 'parseDate',
+    value: function parseDate(videoAge) {
+      // Fríða lagar
+      return videoAge;
     }
   }]);
 
