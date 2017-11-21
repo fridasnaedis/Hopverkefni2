@@ -11,14 +11,14 @@ class Videos {
     const request = new XMLHttpRequest();
     request.open('GET', './videos.json',true);
 
+    const parent = this;
 
     request.onload = function() {
       const result = JSON.parse(request.response);
-      createCategories(result);
+      parent.createCategories(result);
     };
 
     request.send();
-
 
   }
 

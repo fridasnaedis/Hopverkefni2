@@ -19,9 +19,11 @@ var Videos = function () {
       var request = new XMLHttpRequest();
       request.open('GET', './videos.json', true);
 
+      var parent = this;
+
       request.onload = function () {
         var result = JSON.parse(request.response);
-        createCategories(result);
+        parent.createCategories(result);
       };
 
       request.send();
