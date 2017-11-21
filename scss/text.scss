@@ -1,0 +1,21 @@
+.text {
+
+color: white;
+
+
+  &__videoTitle {
+    overflow: hidden;
+    white-space: nowrap;
+    max-width: 83%;
+    width:auto;
+  }
+
+  &__videoDate {
+
+  }
+
+  &__categoryTitle {
+    margin-top: 40px;
+    margin-bottom: 20px;
+  }
+}

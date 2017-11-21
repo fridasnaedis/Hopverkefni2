@@ -9,13 +9,14 @@ class Videos {
       const categoryTitle = data.categories[i].title;
       const categoryVideos = data.categories[i].videos;
       const category = document.createElement('div');
-      category.classList.add('.category');
-      const titleNode = document.createElement('h2');
+      category.classList.add('category');
+      const titleNode = document.createElement('h1');
+      titleNode.classList.add('text', 'text__categoryTitle');
       titleNode.appendChild(document.createTextNode(categoryTitle));
       category.appendChild(titleNode);
 
       const cardlist = document.createElement('div');
-      cardlist.classList.add('.cardlist');
+      cardlist.classList.add('cardlist');
       category.appendChild(cardlist);
 
       const currCategory = data.categories[i].videos;
@@ -25,6 +26,10 @@ class Videos {
         const currVideo = this.createVideos(data, videoId);
         cardlist.appendChild(currVideo);
       }
+
+      const cardlistLine = document.createElement('span');
+      cardlistLine.classList.add('cardlist__line');
+      category.appendChild(cardlistLine);
 
 
       this.categories.appendChild(category);
@@ -58,32 +63,39 @@ class Videos {
       console.log('poster : ' + videoImgUrl);
 
       const videoCard = document.createElement('div');
-      videoCard.classList.add('.card');
+      videoCard.classList.add('card');
 
       const videoPoster = document.createElement('div');
-      videoPoster.classList.add('.videoPoster');
+      videoPoster.classList.add('card__videoPoster');
       videoCard.appendChild(videoPoster);
 
       const videoImg = document.createElement('img');
       videoImg.src = videoImgUrl;
+      videoImg.classList.add('card__videoImg');
       videoPoster.appendChild(videoImg);
 
+      const lengthFlex = document.createElement('div');
+      lengthFlex.classList.add('card__lengthFlex');
+      videoPoster.appendChild(lengthFlex);
+
+
       const videoLength = document.createElement('div');
+      videoLength.classList.add('card__videoLength');
       const lengthNode = document.createTextNode(this.parseLength(videoDuration));
       videoLength.appendChild(lengthNode);
-      videoPoster.appendChild(videoLength);
+      lengthFlex.appendChild(videoLength);
 
       const videoDescription = document.createElement('div');
-      videoDescription.classList.add('.videoDescription');
+      videoDescription.classList.add('card__videoDescription');
       videoCard.appendChild(videoDescription);
 
       const videoTitle = document.createElement('h3');
-      videoTitle.classList.add('.videoTitle');
+      videoTitle.classList.add('text', 'text__videoTitle');
       videoTitle.appendChild(document.createTextNode(videoName));
       videoDescription.appendChild(videoTitle);
 
       const videoDate = document.createElement('p');
-      videoDate.classList.add('.videoDate');
+      videoDate.classList.add('text', 'text__videoDate');
       const dateNode = document.createTextNode(this.parseDate(videoAge));
       videoDate.appendChild(dateNode);
       videoDescription.appendChild(videoDate);

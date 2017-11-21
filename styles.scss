@@ -13,14 +13,17 @@ html { /* stylelint-disable-line */
   font-family: helvetica, arial, sans-serif;
   font-size: 16px;
   line-height: 1.5;
+  background-color: #333333;
 }
 
 main { /* stylelint-disable-line */
   display: flex;
-  max-width: 1200px;
+  flex-direction: column;
+  max-width: 1000px;
   padding: 20px;
   margin: 0 auto;
 }
+
 
 @import "scss/card";
 @import "scss/cardlist";
