@@ -9,23 +9,29 @@ class Player{
 
 //Býr til takka, loader myndum
 //Þarf að laga það að myndirnar birtist í html-inu
+// Myndindar eru hvítar, svo til að þær sjáist þarf background =/= white
   createButton(buttonName){
 
     const buttons = document.createElement('div');
     const button = document.createElement('IMG');
-    button.src = './img/back.svg';
+    // nota buttonName til að fá alla takkana, í stað bara einn
+    button.src = buttonName;
     button.setAttribute("height", "28");
     button.setAttribute("width", "110");
     button.setAttribute("alt", "javascript button");
     buttons.appendChild(button);
     this.player.appendChild(buttons);
 
+    if (buttonName = './img/back.svg') {
+      console.log('hvað er i gangi');
+      paused();
+    }
+
     /**á að líta svona út í HTML-inu
     <img name="backButton" src="/back.svg" width="110" height="28" border="0"
     alt="javascript button">
     **/
   }
-
 
   //hér þrufum við að taka við ID á videóinu og tengja við data
   load(){
@@ -46,25 +52,30 @@ class Player{
     currentVideo.setAttribute("type", "video/mp4");
     currentVideo.setAttribute("height", "640");
     currentVideo.setAttribute("width", "365");
-    currentVideo.setAttribute("control", "autoplay");
+    currentVideo.setAttribute("controls", "autoplay");
 
     video.appendChild(currentVideo);
     this.player.appendChild(video);
 
-
     //bý til JS hlust fyrir hvern takka
     const backButton =  this.createButton('./img/back.svg');
-    const nextButton = this.createButton('./img/next.svg');
-    const fullscrButton = this.createButton('./img/fullscreen.svg');
-    const muteButton = this.createButton('./img/mute.svg');
     const playButton = this.createButton('./img/play.svg');
+    const muteButton = this.createButton('./img/mute.svg');
+    const fullscrButton = this.createButton('./img/fullscreen.svg');
+    const nextButton = this.createButton('./img/next.svg');
 
   }
 
   //Meðan vídeó er ekki að spila er sýnt overlay með play takka í miðju og
   //gegnsæum bakgrunn ( rgba(0, 0, 0, 0.2) í fyrirmynd).
   paused(){
+    // mun verða að array shitti seinna líklegast
+    const vid = './videos/bunny.mp4';
 
+    if (video.paused) {
+      vid.play();
+      console.log('spilastu fucboi');
+    }
   }
 
 
