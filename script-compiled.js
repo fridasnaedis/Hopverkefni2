@@ -38,9 +38,24 @@ var Videos = function () {
         var titleNode = document.createElement('h2');
         titleNode.appendChild(document.createTextNode(categoryTitle));
         category.appendChild(titleNode);
-        //createVideos(currCategory);
+        createVideos(data, currCategory);
 
         this.cardlists.appendChild(category);
+      }
+    }
+  }, {
+    key: 'createVideos',
+    value: function createVideos(data, currCategory) {
+      for (var i = 0; i < currCategory.videos.length; i++) {
+        console.log(data.videos[currCategory.videos[i]]);
+        var videoId = currCategory.videos[i];
+        console.log('id : ' + videoId);
+        var videoTitle = data.videos[videoId].title;
+        console.log('Title : ' + videoTitle);
+        var videoAge = data.videos[videoId].created;
+        console.log('Age : ' + videoAge);
+        var videoPoster = data.videos[videoId].poster;
+        console.log('poster : ' + videoPoster);
       }
     }
   }]);

@@ -32,18 +32,28 @@ class Videos {
       const titleNode = document.createElement('h2');
       titleNode.appendChild(document.createTextNode(categoryTitle));
       category.appendChild(titleNode);
-      //createVideos(currCategory);
+      createVideos(data, currCategory);
 
       this.cardlists.appendChild(category);
     }
   }
 
 
+  createVideos(data, currCategory){
+    for (let i = 0; i < currCategory.videos.length; i++){
+      console.log(data.videos[currCategory.videos[i]]);
+      const videoId = currCategory.videos[i];
+      console.log('id : ' + videoId);
+      const videoTitle = data.videos[videoId].title;
+      console.log('Title : ' + videoTitle);
+      const videoAge = data.videos[videoId].created;
+      console.log('Age : ' + videoAge);
+      const videoPoster = data.videos[videoId].poster;
+      console.log('poster : ' + videoPoster);
+    }
+
+  }
 }
-
-
-
-
 
 document.addEventListener('DOMContentLoaded', () => {
   console.log('Wowsa');
