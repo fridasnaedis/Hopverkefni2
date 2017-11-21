@@ -93,14 +93,52 @@ class Videos {
 
 
   parseLength(duration){
-    // Fríða lagar
-    return duration;
+    const minutes = Math.floor(duration/60);
+    const seconds = duration - minutes*60;
+    let time = '';
+    if(minutes < 10){
+	     time = '0'.concat(minutes.toString().concat(':'));
+     } else {
+	     time = minutes.toString().concat(':');
+     }
+
+     if(seconds < 10){
+	       return time.concat('0'.concat(seconds.toString()));
+       } else {
+	       return time.concat(seconds.toString());
+       }
   }
 
 
   parseDate(videoAge){
-    // Fríða lagar
-    return videoAge;
+    const timeSince = Math.floor((new Date() - videoAge)/1000);
+const minutes = Math.floor(timeSince/60);
+const hours = Math.floor(minutes/60);
+const days = Math.floor(hours/24);
+const weeks = Math.floor(days/7);
+const months = Math.floor(days/30);
+const years = Math.floor(days/365);
+
+const fyrir = 'Fyrir ';
+
+if(years > 0){
+	return fyrir.concat(years.toString().concat(' ári/árum síðan'));
+
+} else if (months > 0){
+	return fyrir.concat(months.toString().concat(' mánuði/mánuðum síðan'));
+
+} else if (weeks > 0){
+	return fyrir.concat(weeks.toString().concat(' viku/vikum síðan'));
+fyrir
+} else if (days > 0){
+	return fyrir.concat(days.toString().concat(' degi/dögum síðan'));
+
+} else if (hours > 0){
+	return fyrir.concat(hours.concat(' klukustund/klukkustundum síðan'));
+
+} else {
+	return fyrir.concat(minutes.concat(' mínútu/mínútum síðan'));
+}
 
   }
 
