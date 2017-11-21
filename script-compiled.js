@@ -1,9 +1,12 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 "use strict";
 <<<<<<< HEAD
 =======
 >>>>>>> e24fbc7a88e81148733a1fca158cc0e8488c44e0
+=======
+>>>>>>> f93d2f815f75da45af700f79372ec481cee5349b
 'use strict';
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -13,10 +16,14 @@ document.addEventListener('DOMContentLoaded', function () {
   videos.load();
 });
 <<<<<<< HEAD
+<<<<<<< HEAD
 "use strict";
 =======
 >>>>>>> 6564dcd7b050b672f695a638fe497c2e10567836
 >>>>>>> e24fbc7a88e81148733a1fca158cc0e8488c44e0
+=======
+"use strict";
+>>>>>>> f93d2f815f75da45af700f79372ec481cee5349b
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
