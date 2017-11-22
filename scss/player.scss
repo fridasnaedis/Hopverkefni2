@@ -5,13 +5,11 @@
   }
 
   &__button {
-    display: flex;
-    background:url(./img/back.svg);
-    max-width: 100%;
+
   }
 
   &__play {
-
+    background-image: url('./img/pause.svg');
   }
 
   &__pause {
