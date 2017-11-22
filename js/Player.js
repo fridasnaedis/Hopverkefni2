@@ -11,7 +11,7 @@ class Player {
     let button = document.createElement('button');
     button.classList.add(buttonName);
     this.player.appendChild(button);
-      console.log(buttonName);
+    console.log(buttonName);
     switch(buttonName) {
 
       case "playButton":
@@ -94,7 +94,21 @@ class Player {
   //annars er pásu táknmynd sýnd og vídeó pásað
   //querystring, t.d. video.html?id=1
   playButton() {
-    console.log('ýtti á play');
+    const video = document.querySelector('.video');
+    if(video.paused){
+      const button = document.querySelector('.pauseButton');
+      console.log('ýtti á play');
+      video.play();
+      button.classList.remove('pauseButton');
+      button.classList.add('playButton');
+    }
+    else{
+      const button = document.querySelector('.playButton');
+      video.pause();
+      console.log('ýtti á pause');
+      button.classList.remove('playButton');
+      button.classList.add('pauseButton');
+    }
 
   }
 
@@ -121,8 +135,7 @@ class Player {
   nextButton() {
     console.log('ýtti á next');
     const video = document.querySelector('.video');
-
-    //video.currentTime(video.currentTime() + 3);
+    video.currentTime += 3;
 
 
   }
@@ -131,6 +144,8 @@ class Player {
   // er það fært til baka um 3 sekúndur eða á byrjun
   backButton() {
     console.log('ýtti á back');
+    const video = document.querySelector('.video');
+    video.currentTime -= 3;
 
   }
 
@@ -141,11 +156,17 @@ class Player {
     const video = document.querySelector('.video');
 
     if(video.muted) {
+        const button = document.querySelector('.unmuteButton');
         video.muted = false;
+        button.classList.remove('unmuteButton');
+        button.classList.add('muteButton');
         //this.video.classList.remove('.mute');
         }
     else {
+      const button = document.querySelector('.muteButton');
           video.muted = true;
+          button.classList.remove('muteButton');
+          button.classList.add('unmuteButton');
         //  this.video.classList.add('.mute');
 
 }
