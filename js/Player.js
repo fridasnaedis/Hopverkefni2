@@ -94,7 +94,17 @@ class Player {
   //annars er pásu táknmynd sýnd og vídeó pásað
   //querystring, t.d. video.html?id=1
   playButton() {
-    console.log('ýtti á play');
+    const video = document.querySelector('.video');
+    if(video.paused){
+      console.log('ýtti á play');
+      video.play();
+      //Eyða pause takka, breyta í play
+    }
+    else{
+      video.pause();
+      console.log('ýtti á pause');
+      //Eyða play takka, breyta í pause
+    }
 
   }
 
@@ -121,8 +131,7 @@ class Player {
   nextButton() {
     console.log('ýtti á next');
     const video = document.querySelector('.video');
-
-    //video.currentTime(video.currentTime() + 3);
+    video.currentTime += 3;
 
 
   }
@@ -131,6 +140,8 @@ class Player {
   // er það fært til baka um 3 sekúndur eða á byrjun
   backButton() {
     console.log('ýtti á back');
+    const video = document.querySelector('.video');
+    video.currentTime -= 3;
 
   }
 
