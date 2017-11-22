@@ -42,3 +42,10 @@ player.button {
   width: 30px;
   height: 30px;
   margin-right: 5px; }
+
+.button {
+  background-color: Transparent; }
+
+/**
+"height", "50");
+mynd.setAttribute("width", "110")**/
