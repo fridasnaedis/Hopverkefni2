@@ -11,7 +11,7 @@ class Player {
     let button = document.createElement('button');
     button.classList.add(buttonName);
     this.player.appendChild(button);
-      console.log(buttonName);
+    console.log(buttonName);
     switch(buttonName) {
 
       case "playButton":
@@ -96,14 +96,18 @@ class Player {
   playButton() {
     const video = document.querySelector('.video');
     if(video.paused){
+      const button = document.querySelector('.pauseButton');
       console.log('ýtti á play');
       video.play();
-      //Eyða pause takka, breyta í play
+      button.classList.remove('pauseButton');
+      button.classList.add('playButton');
     }
     else{
+      const button = document.querySelector('.playButton');
       video.pause();
       console.log('ýtti á pause');
-      //Eyða play takka, breyta í pause
+      button.classList.remove('playButton');
+      button.classList.add('pauseButton');
     }
 
   }
@@ -152,11 +156,17 @@ class Player {
     const video = document.querySelector('.video');
 
     if(video.muted) {
+        const button = document.querySelector('.unmuteButton');
         video.muted = false;
+        button.classList.remove('unmuteButton');
+        button.classList.add('muteButton');
         //this.video.classList.remove('.mute');
         }
     else {
+      const button = document.querySelector('.muteButton');
           video.muted = true;
+          button.classList.remove('muteButton');
+          button.classList.add('unmuteButton');
         //  this.video.classList.add('.mute');
 
 }
