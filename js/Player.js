@@ -72,6 +72,8 @@ class Player {
     video.appendChild(currentVideo);
     this.player.appendChild(video);
 
+    const videoHandler =  document.querySelector('.video');
+    videoHandler.addEventListener('click', this.playButton.bind(this));
 
     /**gera í css
     currentVideo.setAttribute("type", "video/mp4");
