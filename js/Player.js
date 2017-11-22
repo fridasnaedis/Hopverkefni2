@@ -46,9 +46,9 @@ class Player {
     //nota data.videos[id].video ekki beinann link
     const source = './videos/bunny.mp4';
     const video = document.createElement('div');
-    //add classlist?
+    video.classList.add('player');
     const currentVideo = document.createElement('video');
-    //add classlist?
+    currentVideo.classList.add('video');
     currentVideo.src = source;
     video.appendChild(currentVideo);
     this.player.appendChild(video);
@@ -62,7 +62,7 @@ class Player {
 
     //gera takka
     const buttons = ['backButton', 'playButton', 'muteButton',
-                      'fullscrenButton', 'nextButton'];
+                      'fullscrButton', 'nextButton'];
 
     buttons.forEach(item => {
       this.createButton(item);
@@ -94,6 +94,7 @@ class Player {
   //annars er pásu táknmynd sýnd og vídeó pásað
   //querystring, t.d. video.html?id=1
   playButton() {
+    console.log('ýtti á play');
 
   }
 
@@ -102,30 +103,27 @@ class Player {
   fullscrButton() {
 
     console.log('ýtti á fullscreen');
-    /**
-    var elem = document.getElementById("myvideo");
-      if (elem.requestFullscreen) {
-        elem.requestFullscreen();
-        elem.classList.add('fullscren');
-      }
+    const video = document.querySelector('.video');
 
-  }
-
-  //eða gera svona?
-  function toggleFullScreen() {
-    if (!document.fullscreenElement) {
-      document.documentElement.requestFullscreen();
-    } else {
-    if (document.exitFullscreen) {
-      document.exitFullscreen();
-    }
-  }**/
+    if (video.requestFullscreen) {
+    	  video.requestFullscreen();
+    	} else if (video.mozRequestFullScreen) {
+    	  video.mozRequestFullScreen();
+    	} else if (video.webkitRequestFullscreen) {
+    	  video.webkitRequestFullscreen();
+    	} else if (video.msRequestFullscreen) {
+    		video.msRequestFullscreen();
+    	}
   }
 
   //Áfram takki, þegar ýtt er á hann og myndband er að spila,
   //er það fært áfram um 3 sekúndur eða á enda
   nextButton() {
     console.log('ýtti á next');
+    const video = document.querySelector('.video');
+
+    //video.currentTime(video.currentTime() + 3);
+
 
   }
 
@@ -140,13 +138,15 @@ class Player {
   muteButton() {
 
     console.log('ýtti á mute');
+    const video = document.querySelector('.video');
+
     if(video.muted) {
         video.muted = false;
-        this.video.classList.remove('.mute');
+        //this.video.classList.remove('.mute');
         }
     else {
           video.muted = true;
-          this.video.classList.add('.mute');
+        //  this.video.classList.add('.mute');
 
 }
 
