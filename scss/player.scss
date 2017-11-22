@@ -4,25 +4,37 @@
 
   }
 
-  &__button {
+  &__buttonName {
 
   }
 
-  &__play {
-    background-image: url('./img/pause.svg');
+  &backButton {
+    
+    background-image: url('./img/back.svg');
   }
 
-  &__pause {
-
-  }
-
-  &__fullscreen {
+  &__playButton {
 
   }
 
-  &__mute {
+  &__pauseButton {
 
   }
 
+  &__muteButton {
+
+  }
+
+  &__unmuteButton {
+
+  }
+
+  &__fullscrButton {
+
+  }
+
+  &__nextButton {
+
+  }
 
 }
