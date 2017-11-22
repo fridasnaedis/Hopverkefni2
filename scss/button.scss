@@ -1,9 +1,14 @@
 button {
-  background-color: Transparent;
+  //background-color: Transparent;
+  border: none;
   display: inline-flex;
   width: 48px;
   height: 48px;
   margin-right: 4px;
+}
+
+button:hover {
+  cursor: url(./img/dab.png), auto;
 }
 
 .backButton{

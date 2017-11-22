@@ -23,6 +23,8 @@ a:hover {
 .pallflix{
   width: 300px;
 }
+//Til að overlay virki þurfum við að bæta við div
+//utan um video sem er nákv. jafn stórt og það
 
 .player {
   position:relative;
@@ -42,6 +44,12 @@ a:hover {
    transform: translate(-50%, -50%);
    position:absolute;
 }
+/*
+.videobox:hover {
+  cursor: url(./img/dab.png), auto;
+}
+*/
+
 
 .hidden {
   display: none;
