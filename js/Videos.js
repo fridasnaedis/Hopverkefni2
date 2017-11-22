@@ -5,6 +5,41 @@ class Videos {
   }
 
   createCategories(data) {
+    const categories = data.categories;
+
+    categories.forEach((thisCategory) => {
+      const categoryTitle = thisCategory.title;
+
+      const category = document.createElement('div');
+      category.classList.add('category');
+
+      const titleNode = document.createElement('h1');
+      titleNode.classList.add('text', 'text__categoryTitle');
+      titleNode.appendChild(document.createTextNode(categoryTitle));
+      category.appendChild(titleNode);
+
+      const cardlist = document.createElement('div');
+      cardlist.classList.add('cardlist');
+      category.appendChild(cardlist);
+
+      const currCategory = thisCategory.videos;
+
+      currCategory.forEach(currId => {
+        const videoId = currId -1;
+        const currVideo = this.createVideos(data, videoId);
+        cardlist.appendChild(currVideo);
+      });
+
+      const cardlistLine = document.createElement('span');
+      cardlistLine.classList.add('cardlist__line');
+      category.appendChild(cardlistLine);
+
+
+      this.categories.appendChild(category);
+
+    });
+
+    /*
     for(let i = 0; i < data.categories.length; i++){
       const categoryTitle = data.categories[i].title;
       const categoryVideos = data.categories[i].videos;
@@ -33,7 +68,7 @@ class Videos {
 
 
       this.categories.appendChild(category);
-    }
+    }*/
   }
 
   load() {
@@ -62,9 +97,10 @@ class Videos {
       const videoImgUrl = data.videos[videoId].poster;
       console.log('poster : ' + videoImgUrl);
 
-      const videoCard = document.createElement('div');
+      const videoCard = document.createElement('a');
       videoCard.classList.add('card');
-      videoCard.setAttribute('id', videoId+1)
+      const videoLinkUrl = 'player.html?id='.concat(videoId+1);
+      videoCard.setAttribute('href', videoLinkUrl);
 
       const videoPoster = document.createElement('div');
       videoPoster.classList.add('card__videoPoster');
