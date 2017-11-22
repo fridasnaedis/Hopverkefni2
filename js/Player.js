@@ -8,7 +8,7 @@ class Player {
   createButton(buttonName) {
     let button = document.createElement('button');
     button.classList.add(buttonName);
-    this.player.appendChild(button);
+    this.buttons.appendChild(button);
     console.log(buttonName);
     switch (buttonName) {
 
@@ -60,7 +60,12 @@ class Player {
     const title = document.createElement('h2');
     const titleNode = document.createTextNode(data.videos[id - 1].title);
     title.appendChild(titleNode);
+    title.classList.add('text', 'text__videoTitle');
     this.player.appendChild(title);
+    //videobox
+    const videoBox = document.createElement('div');
+    videoBox.classList.add('videoBox');
+    this.player.appendChild(videoBox);
 
     //video
     const source = data.videos[id - 1].video;
@@ -68,14 +73,26 @@ class Player {
     currentVideo.classList.add('video');
     currentVideo.src = source;
     title.appendChild(currentVideo);
-    this.player.appendChild(currentVideo);
+    videoBox.appendChild(currentVideo);
 
     const overlay = document.createElement('div');
     overlay.classList.add('overlay');
-    overlay.classList.add('playButton');
-    this.player.appendChild(overlay);
-    const videoHandler =  document.querySelector('.video');
+    const overlay__button = document.createElement('div');
+    overlay__button.classList.add('overlay__button','playButton');
+    overlay.appendChild(overlay__button);
+    videoBox.appendChild(overlay);
+    const videoHandler =  document.querySelector('.videoBox');
     videoHandler.addEventListener('click', this.playButton.bind(this));
+
+    this.buttons = document.createElement('div');
+    this.buttons.classList.add('buttons');
+    this.player.appendChild(this.buttons);
+
+    const back = document.createElement('a');
+    back.classList.add('text');
+    back.setAttribute('href', '..');
+    back.appendChild(document.createTextNode('Til baka'));
+    this.player.appendChild(back);
 
     /**gera í css
     currentVideo.setAttribute("type", "video/mp4");
@@ -113,6 +130,7 @@ class Player {
   playButton() {
     const video = document.querySelector('.video');
     const overlay = document.querySelector('.overlay');
+    const overlay__button = document.querySelector('.overlay__button');
 
     if (video.paused) {
       const button = document.querySelector('button.playButton');
@@ -120,7 +138,7 @@ class Player {
       video.play();
       button.classList.remove('playButton');
       button.classList.add('pauseButton');
-      overlay.classList.remove('playButton');
+      overlay__button.classList.remove('playButton');
       overlay.classList.add('hidden');
     } else {
       const button = document.querySelector('.pauseButton');
@@ -129,7 +147,7 @@ class Player {
       button.classList.remove('pauseButton');
       button.classList.add('playButton');
       overlay.classList.remove('hidden');
-      overlay.classList.add('playButton');
+      overlay__button.classList.add('playButton');
     }
 
   }
