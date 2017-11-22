@@ -64,13 +64,11 @@ class Player {
 
     //video
     const source = data.videos[id - 1].video;
-    const video = document.createElement('div');
-    video.classList.add('player');
     const currentVideo = document.createElement('video');
     currentVideo.classList.add('video');
     currentVideo.src = source;
-    video.appendChild(currentVideo);
-    this.player.appendChild(video);
+    title.appendChild(currentVideo);
+    this.player.appendChild(currentVideo);
 
     const videoHandler =  document.querySelector('.video');
     videoHandler.addEventListener('click', this.playButton.bind(this));
@@ -98,7 +96,9 @@ class Player {
 
   //Ef vídeó er ekki til ( id er ekki í videos.json ) er skilaboð um það birt.
   errorMessage() {
-
+    /**if(!id){
+      //skilaboð?
+    }**/
   }
 
   /***********PLAYER CONTROLS**************/
