@@ -38,37 +38,6 @@ class Videos {
       this.categories.appendChild(category);
 
     });
-
-    /*
-    for(let i = 0; i < data.categories.length; i++){
-      const categoryTitle = data.categories[i].title;
-      const categoryVideos = data.categories[i].videos;
-      const category = document.createElement('div');
-      category.classList.add('category');
-      const titleNode = document.createElement('h1');
-      titleNode.classList.add('text', 'text__categoryTitle');
-      titleNode.appendChild(document.createTextNode(categoryTitle));
-      category.appendChild(titleNode);
-
-      const cardlist = document.createElement('div');
-      cardlist.classList.add('cardlist');
-      category.appendChild(cardlist);
-
-      const currCategory = data.categories[i].videos;
-
-      for (let j = 0; j < currCategory.length; j++){
-        const videoId = currCategory[j] -1;
-        const currVideo = this.createVideos(data, videoId);
-        cardlist.appendChild(currVideo);
-      }
-
-      const cardlistLine = document.createElement('span');
-      cardlistLine.classList.add('cardlist__line');
-      category.appendChild(cardlistLine);
-
-
-      this.categories.appendChild(category);
-    }*/
   }
 
   load() {
@@ -208,6 +177,4 @@ if(years > 0){
 }}
 
   }
-
-
 }

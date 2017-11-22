@@ -13,7 +13,7 @@ html { /* stylelint-disable-line */
   font-family: helvetica, arial, sans-serif;
   font-size: 16px;
   line-height: 1.5;
-  background-color: #333333;
+  background-color: #333;
   cursor: url(./img/palli.png) 5 5, default;
 }
 
@@ -35,5 +35,5 @@ main { /* stylelint-disable-line */
 
 @import "scss/card";
 @import "scss/cardlist";
-@import "scss/button";
+@import "scss/player";
 @import "scss/text";
