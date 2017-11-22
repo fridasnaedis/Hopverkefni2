@@ -1,4 +1,5 @@
-class Player{
+class Player {
+
 
 
   //látum smiðinn taka við ID á videóinu = querystring
@@ -7,38 +8,26 @@ class Player{
   }
 
 
-//Býr til takka, loader myndum
-//Þarf að laga það að myndirnar birtist í html-inu
-// Myndindar eru hvítar, svo til að þær sjáist þarf background =/= white
-  createButton(buttonName){
-
-    const buttons = document.createElement('div');
+  //Býr til takka, loader myndum
+  createButton(buttonName) {
     const button = document.createElement('IMG');
+    button.classList.add('button')
     // nota buttonName til að fá alla takkana, í stað bara einn
     button.src = buttonName;
-    button.setAttribute("height", "28");
+    button.setAttribute("height", "50");
     button.setAttribute("width", "110");
     button.setAttribute("alt", "javascript button");
-    buttons.appendChild(button);
-    this.player.appendChild(buttons);
-
-    if (buttonName = './img/back.svg') {
-      console.log('hvað er i gangi');
-      paused();
-    }
-
-    /**á að líta svona út í HTML-inu
-    <img name="backButton" src="/back.svg" width="110" height="28" border="0"
-    alt="javascript button">
-    **/
+    //button.setAttribute("onClick", "paused()")
+    //buttons.appendChild(button);
+    this.player.appendChild(button);
   }
 
   //hér þrufum við að taka við ID á videóinu og tengja við data
-  load(){
+  load() {
 
     /**
-    const title = document.getElementById('title';)
-    title.document.createElement(createTextNode(data.videos[id].title));
+    const title = document.getElementById('title');
+    document.appendChild(document.createTextNode('Big Bunny'));
     **/
 
     //video
@@ -50,26 +39,42 @@ class Player{
     //add classlist?
     currentVideo.src = source;
     currentVideo.setAttribute("type", "video/mp4");
-    currentVideo.setAttribute("height", "640");
-    currentVideo.setAttribute("width", "365");
-    currentVideo.setAttribute("controls", "autoplay");
+    currentVideo.setAttribute("height", "846");
+    currentVideo.setAttribute("width", "565");
+
+    //default takkar fyrir videó controls
+    //currentVideo.setAttribute("controls", "autoplay");
+    currentVideo.setAttribute('poster', './videos/bunny.png'); //data.videos.poster
+
 
     video.appendChild(currentVideo);
     this.player.appendChild(video);
 
     //bý til JS hlust fyrir hvern takka
-    const backButton =  this.createButton('./img/back.svg');
-    const playButton = this.createButton('./img/play.svg');
-    const muteButton = this.createButton('./img/mute.svg');
-    const fullscrButton = this.createButton('./img/fullscreen.svg');
-    const nextButton = this.createButton('./img/next.svg');
+    this.createButton('./img/back.svg');
+    //veljum hlutinn út DOM???
+    // const backButton = document.getElementById('IMG');
+    //setum eventListener á hann??
+    //backButton.addEventListener('click', this.paused);
+    this.createButton('./img/play.svg');
+    //  playButton.addEventListener("click", paused;
+    this.createButton('./img/mute.svg');
+    //    muteButton.addEventListener("click", muteVolume());
+    this.createButton('./img/fullscreen.svg');
+    //  fullscrButton.addEventListener("click", fullScreen());
+    this.createButton('./img/next.svg');
+    //  nextButton.addEventListener("click", jumpForward());
+    //pæling að hafa einn eventListiner og taka in ID á myndinni og kalla þanað
+    // á fallið
 
+    //tilbaka takki!
   }
 
   //Meðan vídeó er ekki að spila er sýnt overlay með play takka í miðju og
   //gegnsæum bakgrunn ( rgba(0, 0, 0, 0.2) í fyrirmynd).
-  paused(){
+  paused() {
     // mun verða að array shitti seinna líklegast
+    console.log('ýtti á takka');
     const vid = './videos/bunny.mp4';
 
     if (video.paused) {
@@ -80,7 +85,7 @@ class Player{
 
 
   //Ef vídeó er ekki til ( id er ekki í videos.json ) er skilaboð um það birt.
-  errorMessage(){
+  errorMessage() {
 
   }
 
@@ -88,7 +93,7 @@ class Player{
 
   //Fullscreen takki, setur vídeó í fullscreen (athuga þarf stuðning og gera
   //ráðstafanir með requestFullscreen API)
-  fullScreen(){
+  fullScreen() {
     /**
     var elem = document.getElementById("myvideo");
       if (elem.requestFullscreen) {
@@ -111,35 +116,34 @@ class Player{
 
   //Áfram takki, þegar ýtt er á hann og myndband er að spila,
   //er það fært áfram um 3 sekúndur eða á enda
-  jumpForward(){
+  jumpForward() {
 
   }
 
   //Til baka takki, þegar ýtt er á hann og myndband er að spila,
   // er það fært til baka um 3 sekúndur eða á byrjun
-  jumpBackwards(){
+  jumpBackwards() {
 
   }
 
   //Slökkva á hljóði takki, ef hljóð er að spila er slökkt á því annars öfugt
-   muteVolume(){
-  /**  if(!muted){
-      classList.add('muted');
-      document.images["jsbutton"].src= "/unmute.jpg";
-      return true;
-    }
-    else {
-      classList.remove('muted');
-    }
-    **/
-   }
+  muteVolume() {
+    /**  if(!muted){
+        classList.add('muted');
+        document.images["jsbutton"].src= "/unmute.jpg";
+        return true;
+      }
+      else {
+        classList.remove('muted');
+      }
+      **/
+  }
 
 
-
-   //Spila takki, ef videó er ekki að spila er það spilað,
-   //annars er pásu táknmynd sýnd og vídeó pásað
-   //querystring, t.d. video.html?id=1
-  playVideo(id){
+  //Spila takki, ef videó er ekki að spila er það spilað,
+  //annars er pásu táknmynd sýnd og vídeó pásað
+  //querystring, t.d. video.html?id=1
+  playVideo(id) {
     /**
     // Video
     if(!id){
