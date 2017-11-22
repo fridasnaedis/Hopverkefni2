@@ -37,10 +37,10 @@ class Player {
   //hér þrufum við að taka við ID á videóinu og tengja við data
   load() {
 
-    /**
-    const title = document.getElementById('title');
+
+  /**const title = document.getElementById('title');
     document.appendChild(document.createTextNode('Big Bunny'));
-    **/
+**/
 
     //video
     //nota data.videos[id].video ekki beinann link
@@ -72,9 +72,8 @@ class Player {
 
   //Meðan vídeó er ekki að spila er sýnt overlay með play takka í miðju og
   //gegnsæum bakgrunn ( rgba(0, 0, 0, 0.2) í fyrirmynd).
-  overlay(video) {
+  overlay() {
     // mun verða að array shitti seinna líklegast
-    console.log('ýtti á play');
     const vid = './videos/bunny.mp4';
 
     if (video.paused) {
@@ -94,16 +93,8 @@ class Player {
   //Spila takki, ef videó er ekki að spila er það spilað,
   //annars er pásu táknmynd sýnd og vídeó pásað
   //querystring, t.d. video.html?id=1
-  playButton(id) {
-    console.log('ýtti á play');
+  playButton() {
 
-    /**
-    // Video
-    if(!id){
-      errorMessage();
-    }
-    var video = document.getElementById("video");
-    **/
   }
 
   //Fullscreen takki, setur vídeó í fullscreen (athuga þarf stuðning og gera
@@ -149,14 +140,15 @@ class Player {
   muteButton() {
 
     console.log('ýtti á mute');
-    /**  if(!muted){
-        classList.add('muted');
-        document.images["jsbutton"].src= "/unmute.jpg";
-        return true;
-      }
-      else {
-        classList.remove('muted');
-      }
-      **/
+    if(video.muted) {
+        video.muted = false;
+        this.video.classList.remove('.mute');
+        }
+    else {
+          video.muted = true;
+          this.video.classList.add('.mute');
+
+}
+
   }
 }

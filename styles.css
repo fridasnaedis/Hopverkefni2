@@ -31,7 +31,7 @@ html {
   background-color: #333;
   color: #fff; }
 
-player.button {
+.button {
   display: flex;
   flex-direction: row; }
 
@@ -44,7 +44,13 @@ player.button {
   margin-right: 5px; }
 
 .button {
-  background-color: Transparent; }
+  background-color: Transparent;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  width: 30px;
+  height: 30px;
+  margin-right: 5px; }
 
 /**
 "height", "50");
