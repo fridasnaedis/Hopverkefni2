@@ -46,9 +46,9 @@ class Player {
     //nota data.videos[id].video ekki beinann link
     const source = './videos/bunny.mp4';
     const video = document.createElement('div');
-    //add classlist?
+    video.classList.add('player');
     const currentVideo = document.createElement('video');
-    //add classlist?
+    currentVideo.classList.add('video');
     currentVideo.src = source;
     video.appendChild(currentVideo);
     this.player.appendChild(video);
