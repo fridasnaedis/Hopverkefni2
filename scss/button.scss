@@ -1,9 +1,51 @@
 button {
   background-color: Transparent;
   display: inline-flex;
-  width: 30px;
-  height: 30px;
-  margin-right: 5px;
+  width: 48px;
+  height: 48px;
+  margin-right: 4px;
+}
+
+.backButton{
+  background:url(./img/back.svg) no-repeat top left;
+  background-size: contain;
+  display: inline-block;
+}
+
+.playButton{
+  background:url(./img/play.svg) no-repeat top left;
+  background-size: contain;
+  display: inline-block;
+}
+
+.pauseButton{
+  background:url(./img/pause.svg) no-repeat top left;
+  background-size: contain;
+  display: inline-block;
+}
+
+.muteButton{
+  background:url(./img/mute.svg) no-repeat top left;
+  background-size: contain;
+  display: inline-block;
+}
+
+.unmuteButton{
+  background:url(./img/unmute.svg) no-repeat top left;
+  background-size: contain;
+  display: inline-block;
+}
+
+.fullscrButton{
+  background:url(./img/fullscreen.svg) no-repeat top left;
+  background-size: contain;
+  display: inline-block;
+}
+
+.nextButton{
+  background:url(./img/next.svg) no-repeat top left;
+  background-size: contain;
+  display: inline-block;
 }
 
 /**

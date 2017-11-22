@@ -14,11 +14,11 @@ html { /* stylelint-disable-line */
   font-size: 16px;
   line-height: 1.5;
   background-color: #333;
-  cursor: url(./img/palli.png) 5 5, default;
+  cursor: url(./img/palli.png), auto;
 }
 
 a:hover {
-  cursor: url(./img/dab.png) 5 5, pointer;
+  cursor: url(./img/dab.png), auto;
 }
 .pallflix{
   width: 300px;
