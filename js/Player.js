@@ -70,6 +70,10 @@ class Player {
     title.appendChild(currentVideo);
     this.player.appendChild(currentVideo);
 
+    const overlay = document.createElement('div');
+    overlay.classList.add('overlay');
+    overlay.classList.add('playButton');
+    this.player.appendChild(overlay);
     const videoHandler =  document.querySelector('.video');
     videoHandler.addEventListener('click', this.playButton.bind(this));
 
@@ -108,20 +112,24 @@ class Player {
   //querystring, t.d. video.html?id=1
   playButton() {
     const video = document.querySelector('.video');
+    const overlay = document.querySelector('.overlay');
+
     if (video.paused) {
-      const button = document.querySelector('.pauseButton');
+      const button = document.querySelector('button.playButton');
       console.log('ýtti á play');
       video.play();
-      button.classList.remove('pauseButton');
-      button.classList.add('playButton');
-      video.classList.add('overlay');
-    } else {
-      const button = document.querySelector('.playButton');
-      video.pause();
-      console.log('ýtti á pause');
       button.classList.remove('playButton');
       button.classList.add('pauseButton');
-      video.classList.remove('overlay');
+      overlay.classList.remove('playButton');
+      overlay.classList.add('hidden');
+    } else {
+      const button = document.querySelector('.pauseButton');
+      video.pause();
+      console.log('ýtti á pause');
+      button.classList.remove('pauseButton');
+      button.classList.add('playButton');
+      overlay.classList.remove('hidden');
+      overlay.classList.add('playButton');
     }
 
   }
