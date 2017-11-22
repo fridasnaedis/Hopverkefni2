@@ -1,12 +1,13 @@
 .player {
 
   &__video {
-    
+
   }
 
-
   &__button {
-
+    display: flex;
+    background:url(./img/back.svg);
+    max-width: 100%;
   }
 
   &__play {
