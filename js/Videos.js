@@ -4,6 +4,7 @@ class Videos {
     this.player = document.querySelector('.player');
   }
 
+
   createCategories(data) {
     const categories = data.categories;
 
@@ -51,11 +52,19 @@ class Videos {
     };
 
     request.send();
-
   }
 
   createVideos(data, videoId){
 
+<<<<<<< HEAD
+=======
+
+  createVideos(data){
+    const currCategory = data.categories[0];
+    for (let i = 0; i < currCategory.videos.length; i++){
+      console.log(data.videos[currCategory.videos[i]]);
+      const videoId = currCategory.videos[i];
+>>>>>>> player
       console.log('id : ' + videoId);
       const videoName = data.videos[videoId].title;
       console.log('Title : ' + videoName);
