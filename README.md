@@ -1,5 +1,5 @@
 # Hópverkefni2
-## Höfundar:
+## Höfundar
 Fríða Snædís (fsj3), Páll Ásgeir (pab14), Ísak Arnar (iak5) og Sara Björk (sbm5).
 
 ## Hefjumst handa
