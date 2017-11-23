@@ -198,7 +198,7 @@ class Player {
     }
   }
 
-  // Lætur myndband fara aftur á byrjun og á pásu 
+  // Lætur myndband fara aftur á byrjun og á pásu
 
   reset() {
     const video = document.querySelector('.video');
