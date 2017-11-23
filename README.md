@@ -41,7 +41,6 @@ Ef þú vilt deila síðunni með einhverjum utan aðkomandi þá sést í Termi
 ### Skrifað í og skapað með
 
 * Atom Editor
-* Sublime Text
 * Node.js
 
 ### Höfundar
@@ -58,5 +57,5 @@ Viljum þakka [Páli](https://www.facebook.com/pall.a.bjornsson) fyrir að framl
 ![alt text](https://raw.githubusercontent.com/Pallur/remote-test/master/pallflix.PNG "Pallflix")
 
 * [Ísak](https://raw.githubusercontent.com/Pallur/remote-test/master/sakks.PNG) á heiðurinn af þessum innsetningum code-wise.
-* [Friða](https://www.facebook.com/fridasnaedis) á heiðurinn af hugmyndinni.
+* [Fríða](https://www.facebook.com/fridasnaedis) á heiðurinn af hugmyndinni.
 * [Sara](https://www.facebook.com/sara.marsdottir) stoppaði þetta ekki svo hún er jafn mikill partur af vandamálinu.
