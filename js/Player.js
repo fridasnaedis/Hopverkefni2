@@ -94,7 +94,7 @@ class Player {
     back.appendChild(document.createTextNode('Til baka'));
     this.player.appendChild(back);
 
-    currentVideo.addEventListener('ended', this.playButton.bind(this));
+    currentVideo.addEventListener('ended', this.reset.bind(this));
 
     // gera takka
     const buttons = ['backButton', 'playButton', 'muteButton',
@@ -109,6 +109,18 @@ class Player {
 
   errorMessage() {
 
+  }
+
+  reset() {
+    const video = document.querySelector('.video');
+    video.currentTime = 0;
+    const overlay = document.querySelector('.overlay');
+    const overlayButton = document.querySelector('.overlayButton');
+    const button = document.querySelector('.pauseButton');
+    button.classList.remove('pauseButton');
+    button.classList.add('playButton');
+    overlay.classList.remove('overlay__hidden');
+    overlayButton.classList.add('playButton');
   }
 
   // Spila takki, ef videó er ekki að spila er það spilað,
