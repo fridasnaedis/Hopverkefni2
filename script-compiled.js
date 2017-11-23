@@ -50,6 +50,11 @@ var Player = function () {
         title.classList.add('text', 'text__playerTitle');
         this.player.appendChild(title);
 
+        // Setja titil í tabtexta
+
+        var htmlTitle = document.querySelector('.videoTitle');
+        htmlTitle.appendChild(titleNode);
+
         // videobox
 
         var videoBox = document.createElement('div');
