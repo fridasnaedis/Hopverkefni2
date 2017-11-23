@@ -7,7 +7,6 @@ Fríða Snædís (fsj3), Páll Ásgeir (pab14), Ísak Arnar (iak5) og Sara Björ
 Náð er í vekefnið með því að skrifa eftirfarandi í Terminal / Command Prompt:
 
 ```
-
 git clone https://github.com/fridasnaedis/Hopverkefni2.git
 ```
 
@@ -19,7 +18,6 @@ Verkefnið er sett upp með Node.js: https://nodejs.org/en/
 Opnað er Terminal /  Command Prompt og keyrt þessar skipanir:
 
 ```
-
 npm install
 ```
 
@@ -30,7 +28,6 @@ npm install
 Opna Terminal / Command Prompt, en passa að vera í réttri möppu, og skrifa:
 
 ```
-
 npm run dev
 ```
 
