@@ -1,11 +1,12 @@
 class Videos {
   constructor() {
     this.categories = document.querySelector('.categories');
+    this.player = document.querySelector('.player');
   }
 
 
   createCategories(data) {
-    this.clear();
+    //this.clear();
     const categories = data.categories;
 
     categories.forEach((thisCategory) => {
@@ -42,7 +43,7 @@ class Videos {
   }
 
   load() {
-    this.onLoad();
+    //this.onLoad();
     console.log('Testy test :)');
     const request = new XMLHttpRequest();
     request.open('GET', './videos.json',true);
