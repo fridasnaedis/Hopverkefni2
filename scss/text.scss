@@ -1,13 +1,11 @@
 .text {
-
-color: #fff;
-
+  color: #fff;
 
   &__videoTitle {
+    width: auto;
+    max-width: 83%;
     overflow: hidden;
     white-space: nowrap;
-    max-width: 83%;
-    width:auto;
   }
 
   &__playerTitle {

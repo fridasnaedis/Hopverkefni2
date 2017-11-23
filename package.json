@@ -4,7 +4,7 @@
   "description": "Hópverkefni 2 í Vefforritun 1 haust 2017",
   "main": "index.js",
   "scripts": {
-    "eslint": "eslint *.js",
+    "eslint": "eslint js/*.js",
     "stylelint": "stylelint *.scss scss/*.scss --syntax scss",
     "lint": "stylelint *.scss scss/*.scss --syntax scss",
     "babel": "babel js/*.js --watch --out-file script-compiled.js --source-maps",

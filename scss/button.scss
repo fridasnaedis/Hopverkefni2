@@ -1,58 +1,54 @@
 button {
   //background-color: Transparent;
-  border: none;
   display: inline-flex;
   width: 48px;
   height: 48px;
   margin: 10px;
+  border: transparent;
 }
 
 button:hover {
-  cursor: url(./img/dab.png), auto;
+  cursor: url("./img/dab.png"), auto;
 }
 
-.backButton{
-  background:url(./img/back.svg) no-repeat top left;
-  background-size: contain;
+.backButton {
   display: inline-block;
-}
-
-.playButton{
-  background:url(./img/play.svg) no-repeat top left;
+  background: url("./img/back.svg") no-repeat top left;
   background-size: contain;
-  display: inline-block;
 }
 
-.pauseButton{
-  background:url(./img/pause.svg) no-repeat top left;
+.playButton {
+  display: inline-block;
+  background: url("./img/play.svg") no-repeat top left;
   background-size: contain;
-  display: inline-block;
 }
 
-.muteButton{
-  background:url(./img/mute.svg) no-repeat top left;
+.pauseButton {
+  display: inline-block;
+  background: url("./img/pause.svg") no-repeat top left;
   background-size: contain;
-  display: inline-block;
 }
 
-.unmuteButton{
-  background:url(./img/unmute.svg) no-repeat top left;
+.muteButton {
+  display: inline-block;
+  background: url("./img/mute.svg") no-repeat top left;
   background-size: contain;
-  display: inline-block;
 }
 
-.fullscrButton{
-  background:url(./img/fullscreen.svg) no-repeat top left;
+.unmuteButton {
+  display: inline-block;
+  background: url("./img/unmute.svg") no-repeat top left;
   background-size: contain;
-  display: inline-block;
 }
 
-.nextButton{
-  background:url(./img/next.svg) no-repeat top left;
+.fullscrButton {
+  display: inline-block;
+  background: url("./img/fullscreen.svg") no-repeat top left;
   background-size: contain;
-  display: inline-block;
 }
 
-/**
-"height", "50");
-mynd.setAttribute("width", "110")**/
+.nextButton {
+  display: inline-block;
+  background: url("./img/next.svg") no-repeat top left;
+  background-size: contain;
+}
