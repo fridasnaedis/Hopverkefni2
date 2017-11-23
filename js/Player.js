@@ -60,7 +60,7 @@ class Player {
     const title = document.createElement('h2');
     const titleNode = document.createTextNode(data.videos[id - 1].title);
     title.appendChild(titleNode);
-    title.classList.add('text', 'text__videoTitle');
+    title.classList.add('text', 'text__playerTitle');
     this.player.appendChild(title);
     //videobox
     const videoBox = document.createElement('div');
@@ -89,7 +89,7 @@ class Player {
     this.player.appendChild(this.buttons);
 
     const back = document.createElement('a');
-    back.classList.add('text');
+    back.classList.add('text', 'text__home');
     back.setAttribute('href', '..');
     back.appendChild(document.createTextNode('Til baka'));
     this.player.appendChild(back);
@@ -139,14 +139,14 @@ class Player {
       button.classList.remove('playButton');
       button.classList.add('pauseButton');
       overlay__button.classList.remove('playButton');
-      overlay.classList.add('hidden');
+      overlay.classList.add('overlay__hidden');
     } else {
       const button = document.querySelector('.pauseButton');
       video.pause();
       console.log('ýtti á pause');
       button.classList.remove('pauseButton');
       button.classList.add('playButton');
-      overlay.classList.remove('hidden');
+      overlay.classList.remove('overlay__hidden');
       overlay__button.classList.add('playButton');
     }
 

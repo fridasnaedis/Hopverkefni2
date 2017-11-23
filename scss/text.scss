@@ -10,8 +10,16 @@ color: #fff;
     width:auto;
   }
 
-  &__videoDate {
+  &__playerTitle {
+    margin: 20px;
+    font-size: 2rem;
+    font-weight: bold;
+    align-items: center;
+  }
 
+  &__home {
+    width: auto;
+    margin: 0 auto;
   }
 
   &__categoryTitle {
