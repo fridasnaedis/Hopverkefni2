@@ -6,6 +6,7 @@ class Videos {
 
 
   createCategories(data) {
+    //this.clear();
     const categories = data.categories;
 
     categories.forEach((thisCategory) => {
@@ -42,6 +43,7 @@ class Videos {
   }
 
   load() {
+    //this.onLoad();
     console.log('Testy test :)');
     const request = new XMLHttpRequest();
     request.open('GET', './videos.json',true);
@@ -115,13 +117,13 @@ class Videos {
     const seconds = duration - minutes*60;
     let time = '';
     if(minutes < 10){
-	     time = '0'.concat(minutes.toString().concat(':'));
+	     time = '0'.concat(minutes.toString(),':');
      } else {
 	     time = minutes.toString().concat(':');
      }
 
      if(seconds < 10){
-	       return time.concat('0'.concat(seconds.toString()));
+	       return time.concat('0',seconds.toString());
        } else {
 	       return time.concat(seconds.toString());
        }
@@ -141,40 +143,53 @@ const fyrir = 'Fyrir ';
 
 if(years > 0){
   if (years === 1){
-    return fyrir.concat(years.toString().concat(' ári síðan'));
+    return fyrir.concat(years.toString(),' ári síðan');
   }else {
-	   return fyrir.concat(years.toString().concat(' árum síðan'));
+	   return fyrir.concat(years.toString(),' árum síðan');
   }
 } else if (months > 0){
   if (months === 1){
-    return fyrir.concat(months.toString().concat(' mánuði síðan'));
+    return fyrir.concat(months.toString(),' mánuði síðan');
   }else {
-	   return fyrir.concat(months.toString().concat(' mánuðum síðan'));
+	   return fyrir.concat(months.toString(),' mánuðum síðan');
   }
 } else if (weeks > 0){
   if (weeks === 1){
-    return fyrir.concat(weeks.toString().concat(' viku síðan'));
+    return fyrir.concat(weeks.toString(),' viku síðan');
   }else {
-	   return fyrir.concat(weeks.toString().concat(' vikum síðan'));
+	   return fyrir.concat(weeks.toString(),' vikum síðan');
   }
 } else if (days > 0){
   if (days === 1){
-    return fyrir.concat(days.toString().concat(' degi síðan'));
+    return fyrir.concat(days.toString(),' degi síðan');
   }else {
-	   return fyrir.concat(days.toString().concat(' dögum síðan'));
+	   return fyrir.concat(days.toString(),' dögum síðan');
   }
 } else if (hours > 0){
   if (hours === 1){
-    return fyrir.concat(hours.concat(' klukustund síðan'));
+    return fyrir.concat(hours.toString(),' klukustund síðan');
   }else {
-	   return fyrir.concat(hours.concat(' klukkustundum síðan'));
+	   return fyrir.concat(hours.toString(),' klukkustundum síðan');
   }
 } else {
   if (minutes === 1){
-    return fyrir.concat(minutes.concat(' mínútu síðan'));
+    return fyrir.concat(minutes.toString(),' mínútu síðan');
   }else {
-	   return fyrir.concat(minutes.concat(' mínútum síðan'));
+	   return fyrir.concat(minutes.toString(),' mínútum síðan');
 }}
 
+  }
+
+  onLoad() {
+    const loading = document.createElement('h2');
+    loading.classList.add('text');
+    loading.appendChild(document.createTextNode('Hleð upplýsingum...'));
+    this.categories.appendChild(loading);
+  }
+
+  clear() {
+    while(this.categories.hasChildNodes()) {
+      this.categories.removeChild(this.categories.firstChild);
+    }
   }
 }
