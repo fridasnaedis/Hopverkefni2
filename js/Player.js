@@ -3,33 +3,6 @@ class Player {
     this.player = document.querySelector('.player');
   }
 
-  //  býr til takka og setur á þá eventlistener
-
-  createButton(buttonName) {
-    const button = document.createElement('button');
-    button.classList.add(buttonName);
-    button.classList.add('button');
-    this.buttons.appendChild(button);
-    switch (buttonName) {
-      case 'playButton':
-        button.addEventListener('click', this.playButton.bind(this));
-        break;
-      case 'muteButton':
-        button.addEventListener('click', this.muteButton.bind(this));
-        break;
-      case 'nextButton':
-        button.addEventListener('click', this.nextButton.bind(this));
-        break;
-      case 'backButton':
-        button.addEventListener('click', this.backButton.bind(this));
-        break;
-      case 'fullscrButton':
-        button.addEventListener('click', this.fullscrButton.bind(this));
-        break;
-      default:
-    }
-  }
-
   // náum í JSON
 
   load() {
@@ -40,7 +13,6 @@ class Player {
       this.data = JSON.parse(request.response);
       this.createHtml(this.data);
     };
-
     request.send();
   }
 
@@ -99,6 +71,7 @@ class Player {
       currentVideo.addEventListener('ended', this.playButton.bind(this));
 
       // gera takka
+
       const buttons = ['backButton', 'playButton', 'muteButton',
         'fullscrButton', 'nextButton'];
 
@@ -113,9 +86,35 @@ class Player {
     }
   }
 
+  //  býr til takka og setur á þá eventlistener
+
+  createButton(buttonName) {
+    const button = document.createElement('button');
+    button.classList.add(buttonName);
+    button.classList.add('button');
+    this.buttons.appendChild(button);
+    switch (buttonName) {
+      case 'playButton':
+        button.addEventListener('click', this.playButton.bind(this));
+        break;
+      case 'muteButton':
+        button.addEventListener('click', this.muteButton.bind(this));
+        break;
+      case 'nextButton':
+        button.addEventListener('click', this.nextButton.bind(this));
+        break;
+      case 'backButton':
+        button.addEventListener('click', this.backButton.bind(this));
+        break;
+      case 'fullscrButton':
+        button.addEventListener('click', this.fullscrButton.bind(this));
+        break;
+      default:
+    }
+  }
+
   // Spila takki, ef videó er ekki að spila er það spilað,
   // annars er pásu táknmynd sýnd og vídeó pásað
-  // querystring, t.d. video.html?id=1
 
   playButton() {
     const video = document.querySelector('.video');
