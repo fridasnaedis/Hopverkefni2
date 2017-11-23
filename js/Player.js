@@ -134,7 +134,7 @@ class Player {
     if (video.paused) {
       const button = document.querySelector('button.playButton');
       video.play();
-      if (button.classList.contains('playButton')) {
+      if (button && button.classList.contains('playButton')) {
         button.classList.remove('playButton');
         button.classList.add('pauseButton');
         overlayButton.classList.remove('playButton');
@@ -143,7 +143,7 @@ class Player {
     } else {
       const button = document.querySelector('.pauseButton');
       video.pause();
-      if (button.classList.contains('pauseButton')) {
+      if (button && button.classList.contains('pauseButton')) {
         button.classList.remove('pauseButton');
         button.classList.add('playButton');
         overlay.classList.remove('overlay__hidden');
@@ -191,14 +191,14 @@ class Player {
     if (video.muted) {
       const button = document.querySelector('.unmuteButton');
       video.muted = false;
-      if (button.classList.contains('unmuteButton')) {
+      if (button && button.classList.contains('unmuteButton')) {
         button.classList.remove('unmuteButton');
         button.classList.add('muteButton');
       }
     } else {
       const button = document.querySelector('.muteButton');
       video.muted = true;
-      if (button.classList.contains('muteButton')) {
+      if (button && button.classList.contains('muteButton')) {
         button.classList.remove('muteButton');
         button.classList.add('unmuteButton');
       }
