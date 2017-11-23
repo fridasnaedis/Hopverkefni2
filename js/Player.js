@@ -75,7 +75,7 @@ class Player {
       back.appendChild(document.createTextNode('Til baka'));
       this.player.appendChild(back);
 
-      currentVideo.addEventListener('ended', this.playButton.bind(this));
+      currentVideo.addEventListener('ended', this.reset.bind(this));
 
       // gera takka
 
@@ -196,6 +196,20 @@ class Player {
         button.classList.add('unmuteButton');
       }
     }
+  }
+
+  // Lætur myndband fara aftur á byrjun og á pásu 
+
+  reset() {
+    const video = document.querySelector('.video');
+    video.currentTime = 0;
+    const overlay = document.querySelector('.overlay');
+    const overlayButton = document.querySelector('.overlayButton');
+    const button = document.querySelector('.pauseButton');
+    button.classList.remove('pauseButton');
+    button.classList.add('playButton');
+    overlay.classList.remove('overlay__hidden');
+    overlayButton.classList.add('playButton');
   }
 
   // Fall sem sýnir villumeldingu ef id er ekki til

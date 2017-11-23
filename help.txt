@@ -1,0 +1,355 @@
+diff --git a/img/palli2.png b/img/palli2.png
+new file mode 100644
+index 0000000..5f06cdd
+Binary files /dev/null and b/img/palli2.png differ
+diff --git a/js/Player.js b/js/Player.js
+index b32fdb5..5b01f93 100644
+--- a/js/Player.js
++++ b/js/Player.js
+@@ -3,33 +3,6 @@ class Player {
+     this.player = document.querySelector('.player');
+   }
+ 
+-  //  býr til takka og setur á þá eventlistener
+-
+-  createButton(buttonName) {
+-    const button = document.createElement('button');
+-    button.classList.add(buttonName);
+-    button.classList.add('button');
+-    this.buttons.appendChild(button);
+-    switch (buttonName) {
+-      case 'playButton':
+-        button.addEventListener('click', this.playButton.bind(this));
+-        break;
+-      case 'muteButton':
+-        button.addEventListener('click', this.muteButton.bind(this));
+-        break;
+-      case 'nextButton':
+-        button.addEventListener('click', this.nextButton.bind(this));
+-        break;
+-      case 'backButton':
+-        button.addEventListener('click', this.backButton.bind(this));
+-        break;
+-      case 'fullscrButton':
+-        button.addEventListener('click', this.fullscrButton.bind(this));
+-        break;
+-      default:
+-    }
+-  }
+-
+   // náum í JSON
+ 
+   load() {
+@@ -40,7 +13,6 @@ class Player {
+       this.data = JSON.parse(request.response);
+       this.createHtml(this.data);
+     };
+-
+     request.send();
+   }
+ 
+@@ -55,77 +27,98 @@ class Player {
+     // titleNode
+ 
+     const title = document.createElement('h2');
+-    const titleNode = document.createTextNode(data.videos[id - 1].title);
+-    title.appendChild(titleNode);
+-    title.classList.add('text', 'text__playerTitle');
+-    this.player.appendChild(title);
++    const node = data.videos[id - 1];
++    if (node) {
++      const titleNode = document.createTextNode(data.videos[id - 1].title);
++      title.appendChild(titleNode);
++      title.classList.add('text', 'text__playerTitle');
++      this.player.appendChild(title);
+ 
+-    // videobox
+-
+-    const videoBox = document.createElement('div');
+-    videoBox.classList.add('videoBox');
+-    this.player.appendChild(videoBox);
+-
+-    // video
+-
+-    const source = data.videos[id - 1].video;
+-    const currentVideo = document.createElement('video');
+-    currentVideo.classList.add('video');
+-    currentVideo.src = source;
+-    title.appendChild(currentVideo);
+-    videoBox.appendChild(currentVideo);
+-
+-    const overlay = document.createElement('div');
+-    overlay.classList.add('overlay');
+-    const overlayButton = document.createElement('div');
+-    overlayButton.classList.add('overlayButton', 'playButton');
+-    overlay.appendChild(overlayButton);
+-    videoBox.appendChild(overlay);
+-    const videoHandler = document.querySelector('.videoBox');
+-    videoHandler.addEventListener('click', this.playButton.bind(this));
+-
+-    this.buttons = document.createElement('div');
+-    this.buttons.classList.add('buttons');
+-    this.player.appendChild(this.buttons);
+-
+-    const back = document.createElement('a');
+-    back.classList.add('text', 'text__home');
+-    back.setAttribute('href', '..');
+-    back.appendChild(document.createTextNode('Til baka'));
+-    this.player.appendChild(back);
+-
+-    currentVideo.addEventListener('ended', this.reset.bind(this));
+-
+-    // gera takka
+-    const buttons = ['backButton', 'playButton', 'muteButton',
+-      'fullscrButton', 'nextButton'];
+-
+-    buttons.forEach((item) => {
+-      this.createButton(item);
+-    });
+-  }
++      // videobox
++
++      const videoBox = document.createElement('div');
++      videoBox.classList.add('videoBox');
++      this.player.appendChild(videoBox);
++
++      // video
++
++      const source = data.videos[id - 1].video;
++      const currentVideo = document.createElement('video');
++      currentVideo.classList.add('video');
++      currentVideo.src = source;
++      title.appendChild(currentVideo);
++      videoBox.appendChild(currentVideo);
++
++      // overlay
++
++      const overlay = document.createElement('div');
++      overlay.classList.add('overlay');
++      const overlayButton = document.createElement('div');
++      overlayButton.classList.add('overlayButton', 'playButton');
++      overlay.appendChild(overlayButton);
++      videoBox.appendChild(overlay);
++
++      // event listener - play
++
++      const videoHandler = document.querySelector('.videoBox');
++      videoHandler.addEventListener('click', this.playButton.bind(this));
++
++      this.buttons = document.createElement('div');
++      this.buttons.classList.add('buttons');
++      this.player.appendChild(this.buttons);
++
++      // til baka á forsíðu
++
++      const back = document.createElement('a');
++      back.classList.add('text', 'text__home');
++      back.setAttribute('href', '..');
++      back.appendChild(document.createTextNode('Til baka'));
++      this.player.appendChild(back);
++
++      currentVideo.addEventListener('ended', this.playButton.bind(this));
+ 
+-  // Ef vídeó er ekki til ( id er ekki í videos.json ) er skilaboð um það birt.
++      // gera takka
+ 
+-  errorMessage() {
++      const buttons = ['backButton', 'playButton', 'muteButton',
++        'fullscrButton', 'nextButton'];
+ 
++      buttons.forEach((item) => {
++        this.createButton(item);
++      });
++    } else {
++      this.errorMsg();
++    }
+   }
+ 
+-  reset() {
+-    const video = document.querySelector('.video');
+-    video.currentTime = 0;
+-    const overlay = document.querySelector('.overlay');
+-    const overlayButton = document.querySelector('.overlayButton');
+-    const button = document.querySelector('.pauseButton');
+-    button.classList.remove('pauseButton');
+-    button.classList.add('playButton');
+-    overlay.classList.remove('overlay__hidden');
+-    overlayButton.classList.add('playButton');
++  //  býr til takka og setur á þá eventlistener
++
++  createButton(buttonName) {
++    const button = document.createElement('button');
++    button.classList.add(buttonName);
++    button.classList.add('button');
++    this.buttons.appendChild(button);
++    switch (buttonName) {
++      case 'playButton':
++        button.addEventListener('click', this.playButton.bind(this));
++        break;
++      case 'muteButton':
++        button.addEventListener('click', this.muteButton.bind(this));
++        break;
++      case 'nextButton':
++        button.addEventListener('click', this.nextButton.bind(this));
++        break;
++      case 'backButton':
++        button.addEventListener('click', this.backButton.bind(this));
++        break;
++      case 'fullscrButton':
++        button.addEventListener('click', this.fullscrButton.bind(this));
++        break;
++      default:
++    }
+   }
+ 
+   // Spila takki, ef videó er ekki að spila er það spilað,
+   // annars er pásu táknmynd sýnd og vídeó pásað
+-  // querystring, t.d. video.html?id=1
+ 
+   playButton() {
+     const video = document.querySelector('.video');
+@@ -204,4 +197,28 @@ class Player {
+       }
+     }
+   }
++
++  // Fall sem sýnir villumeldingu ef id er ekki til
++
++  errorMsg() {
++    const title = document.createElement('h2');
++
++    const titleNode = document.createTextNode('Þetta myndband er ekki til');
++    const el = document.createElement('p');
++    const palli = document.createTextNode('En hér er mynd af Palla í staðin:');
++    const mynd = document.createElement('img');
++    mynd.src = './img/palli2.png';
++    mynd.classList.add('errorMynd');
++
++
++    el.appendChild(palli);
++    title.appendChild(titleNode);
++
++    title.classList.add('text', 'text__playerTitle');
++    el.classList.add('text');
++
++    this.player.appendChild(title);
++    this.player.appendChild(el);
++    this.player.appendChild(mynd);
++  }
+ }
+diff --git a/js/Videos.js b/js/Videos.js
+index ee860a9..0440989 100644
+--- a/js/Videos.js
++++ b/js/Videos.js
+@@ -4,8 +4,25 @@ class Videos {
+     this.player = document.querySelector('.player');
+   }
+ 
++  // náum í JSON
++
++  load() {
++    this.onLoad();
++
++    const request = new XMLHttpRequest();
++    request.open('GET', './videos.json', true);
++
++    request.onload = () => {
++      this.data = JSON.parse(request.response);
++      this.createCategories(this.data);
++    };
++    request.send();
++  }
++
++  // Búum til þau catagories sem eru í JSON skránni
++
+   createCategories(data) {
+-    // this.clear();
++    this.clear();
+ 
+     const { categories } = data;
+ 
+@@ -41,18 +58,7 @@ class Videos {
+     });
+   }
+ 
+-  load() {
+-    // this.onLoad();
+-
+-    const request = new XMLHttpRequest();
+-    request.open('GET', './videos.json', true);
+-
+-    request.onload = () => {
+-      this.data = JSON.parse(request.response);
+-      this.createCategories(this.data);
+-    };
+-    request.send();
+-  }
++  // Gerum clickable skjáskot af myndbandi
+ 
+   createVideos(data, videoId) {
+     const videoName = data.videos[videoId].title;
+@@ -101,6 +107,9 @@ class Videos {
+     return videoCard;
+   }
+ 
++  // Tekur lengd inn í sekúndum
++  // skilar í mínútum og sekúndum
++
+   parseLength(duration) {
+     const minutes = Math.floor(duration / 60);
+     const seconds = duration - (minutes * 60);
+@@ -117,6 +126,8 @@ class Videos {
+     return time.concat(seconds.toString());
+   }
+ 
++  // Tekur inn upload tíma í millisekúndum
++  // skilar námunudum tíma í árum, mánuðum, vikum o.s.frv eftir hvað á við
+ 
+   parseDate(videoAge) {
+     const timeSince = Math.floor((new Date() - videoAge) / 1000);
+@@ -161,6 +172,8 @@ class Videos {
+     return fyrir.concat(minutes.toString(), ' mínútum síðan');
+   }
+ 
++  // Sýnir að verið sé að sækja uppýsingar fyrir síðu
++
+   onLoad() {
+     const loading = document.createElement('h2');
+     loading.classList.add('text');
+@@ -168,6 +181,8 @@ class Videos {
+     this.categories.appendChild(loading);
+   }
+ 
++  // Hreinsar allt út af síðu nema heading mynd
++
+   clear() {
+     while (this.categories.hasChildNodes()) {
+       this.categories.removeChild(this.categories.firstChild);
+diff --git a/scss/player.scss b/scss/player.scss
+index 1f66748..75f64ee 100644
+--- a/scss/player.scss
++++ b/scss/player.scss
+@@ -9,6 +9,10 @@
+   justify-content: center;
+ }
+ 
++.errorMynd {
++  width: 100%;
++}
++
+ .videoBox {
+   display: flex;
+   width: 100%;
+diff --git a/styles.scss b/styles.scss
+index 3573701..1a7094d 100644
+--- a/styles.scss
++++ b/styles.scss
+@@ -13,7 +13,7 @@
+   font-family: helvetica, arial, sans-serif;
+   font-size: 16px;
+   line-height: 1.5;
+-  cursor: url("./img/palli.png"), auto;
++  cursor: url("./img/palli.png") 22 22, auto;
+   background-color: #333;
+ }
+ 
