@@ -49,7 +49,7 @@ class Player {
     // get id from html link
 
     const idNr = (window.location.search);
-    const id = parseInt(idNr.match(/\d+/, 10)[0]);
+    const id = parseInt(idNr.match(/\d+/)[0], 10);
 
     // titleNode
 

@@ -5,6 +5,8 @@ module.exports = {
     browser: true,
   },
   rules: {
-    'class-methods-use-this': 0
+    'class-methods-use-this': 0,
+    'no-undef': 0,
+    'no-unused-vars': 0
   }
 };
