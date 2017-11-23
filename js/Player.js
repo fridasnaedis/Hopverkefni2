@@ -8,6 +8,7 @@ class Player {
   createButton(buttonName) {
     const button = document.createElement('button');
     button.classList.add(buttonName);
+    button.classList.add('button');
     this.buttons.appendChild(button);
     switch (buttonName) {
       case 'playButton':

@@ -7,7 +7,7 @@
   margin: 0;
 }
 
-html {
+.html {
   /* stylelint-disable-line */
   box-sizing: border-box;
   font-family: helvetica, arial, sans-serif;
@@ -15,14 +15,6 @@ html {
   line-height: 1.5;
   cursor: url("./img/palli.png"), auto;
   background-color: #333;
-}
-
-a {
-  text-decoration: none;
-}
-
-a:hover {
-  cursor: url("./img/dab.png"), auto;
 }
 
 .pallflix {
@@ -33,7 +25,7 @@ a:hover {
   display: none;
 }
 
-main {
+.main {
   /* stylelint-disable-line */
   display: flex;
   max-width: 1000px;

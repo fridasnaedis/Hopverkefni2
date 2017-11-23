@@ -18,6 +18,11 @@
   &__home {
     width: auto;
     margin: 0 auto;
+    text-decoration: none;
+
+    &:hover {
+      cursor: url("./img/dab.png"), auto;
+    }
   }
 
   &__categoryTitle {

@@ -3,9 +3,14 @@
   width: 100%;
   min-width: auto;
   max-width: auto;
+  text-decoration: none;
   @media (min-width: 999px) {
     min-width: 470px;
     max-width: 470px;
+  }
+
+  &:hover {
+    cursor: url("./img/dab.png"), auto;
   }
 
   &__videoPoster {

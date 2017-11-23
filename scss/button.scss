@@ -1,4 +1,4 @@
-button {
+.button {
   //background-color: Transparent;
   display: inline-flex;
   width: 48px;
@@ -7,7 +7,7 @@ button {
   border: transparent;
 }
 
-button:hover {
+.button:hover {
   cursor: url("./img/dab.png"), auto;
 }
 
