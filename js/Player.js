@@ -75,12 +75,16 @@ class Player {
     title.appendChild(currentVideo);
     videoBox.appendChild(currentVideo);
 
+    // overlay
+
     const overlay = document.createElement('div');
     overlay.classList.add('overlay');
     const overlayButton = document.createElement('div');
     overlayButton.classList.add('overlayButton', 'playButton');
     overlay.appendChild(overlayButton);
     videoBox.appendChild(overlay);
+
+    // play
     const videoHandler = document.querySelector('.videoBox');
     videoHandler.addEventListener('click', this.playButton.bind(this));
 
@@ -88,6 +92,7 @@ class Player {
     this.buttons.classList.add('buttons');
     this.player.appendChild(this.buttons);
 
+    // link til baka á forsíðu
     const back = document.createElement('a');
     back.classList.add('text', 'text__home');
     back.setAttribute('href', '..');

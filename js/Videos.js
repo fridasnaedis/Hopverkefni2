@@ -4,8 +4,23 @@ class Videos {
     this.player = document.querySelector('.player');
   }
 
+  // náum í JSON
+  load() {
+    this.onLoad();
+
+    const request = new XMLHttpRequest();
+    request.open('GET', './videos.json', true);
+
+    request.onload = () => {
+      this.data = JSON.parse(request.response);
+      this.createCategories(this.data);
+    };
+    request.send();
+  }
+
+  // Búum til þau catagories sem eru í JSON skránni
   createCategories(data) {
-    // this.clear();
+    this.clear();
 
     const { categories } = data;
 
@@ -41,19 +56,7 @@ class Videos {
     });
   }
 
-  load() {
-    // this.onLoad();
-
-    const request = new XMLHttpRequest();
-    request.open('GET', './videos.json', true);
-
-    request.onload = () => {
-      this.data = JSON.parse(request.response);
-      this.createCategories(this.data);
-    };
-    request.send();
-  }
-
+  // Gerum clickable skjáskot af myndbandi
   createVideos(data, videoId) {
     const videoName = data.videos[videoId].title;
     const videoDuration = data.videos[videoId].duration;
@@ -101,6 +104,8 @@ class Videos {
     return videoCard;
   }
 
+  // Tekur lengd inn í sekúndum
+  // skilar í mínútum og sekúndum
   parseLength(duration) {
     const minutes = Math.floor(duration / 60);
     const seconds = duration - (minutes * 60);
@@ -117,7 +122,8 @@ class Videos {
     return time.concat(seconds.toString());
   }
 
-
+  // Tekur inn upload tíma í millisekúndum
+  // skilar námunudum tíma í árum, mánuðum, vikum o.s.frv eftir hvað á við
   parseDate(videoAge) {
     const timeSince = Math.floor((new Date() - videoAge) / 1000);
     const minutes = Math.floor(timeSince / 60);
@@ -161,6 +167,7 @@ class Videos {
     return fyrir.concat(minutes.toString(), ' mínútum síðan');
   }
 
+  // Sýnir að verið sé að sækja uppýsingar fyrir síðu
   onLoad() {
     const loading = document.createElement('h2');
     loading.classList.add('text');
@@ -168,6 +175,7 @@ class Videos {
     this.categories.appendChild(loading);
   }
 
+  // Hreinsar allt út af síðu nema heading mynd
   clear() {
     while (this.categories.hasChildNodes()) {
       this.categories.removeChild(this.categories.firstChild);
