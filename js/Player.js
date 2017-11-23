@@ -94,6 +94,8 @@ class Player {
     back.appendChild(document.createTextNode('Til baka'));
     this.player.appendChild(back);
 
+    currentVideo.addEventListener('ended',this.playButton.bind(this));
+
     /**gera í css
     currentVideo.setAttribute("type", "video/mp4");
     currentVideo.setAttribute("height", "846");
@@ -151,7 +153,7 @@ class Player {
         button.classList.add('playButton');
         overlay.classList.remove('overlay__hidden');
         overlay__button.classList.add('playButton');
-      }  
+      }
     }
 
   }
