@@ -36,23 +36,64 @@
       "id": 5,
       "title": "Tequila Ísak",
       "created": 1511394205508,
-      "duration": 38,
+      "duration": 6,
       "poster": "./videos/tequilaisak.png",
       "video": "./videos/tequilaisak.mp4"
+    },
+    {
+      "id": 6,
+      "title": "Boom",
+      "created": 1511400295490,
+      "duration": 10,
+      "poster": "./videos/boom.png",
+      "video": "./videos/boom.mp4"
+    },
+    {
+      "id": 7,
+      "title": "Color red",
+      "created": 1511400423386,
+      "duration": 17,
+      "poster": "./videos/color-red.png",
+      "video": "./videos/color-red.mp4"
+    },
+    {
+      "id": 8,
+      "title": "Bacardi-Bjarni",
+      "created": 1511400491180,
+      "duration": 7,
+      "poster": "./videos/bacardibjarni.png",
+      "video": "./videos/bacardibjarni.mp4"
+    },
+    {
+      "id": 9,
+      "title": "Rikki Surf",
+      "created": 1511400572637,
+      "duration": 21,
+      "poster": "./videos/rikkisurf.png",
+      "video": "./videos/rikkisurf.mp4"
+    },
+    {
+      "id": 10,
+      "title": "Sakki Surf",
+      "created": 1511400931770,
+      "duration": 9,
+      "poster": "./videos/sakkisurf.png",
+      "video": "./videos/sakkisurf.mp4"
     }
+
   ],
   "categories": [
     {
       "title": "Nýleg myndbönd",
-      "videos": [1, 2, 5]
+      "videos": [1, 2, 7]
     },
     {
       "title": "Kennslumyndbönd",
-      "videos": [1, 3, 4]
+      "videos": [1, 3, 4, 6, 8]
     },
     {
       "title": "Skemmtimyndbönd",
-      "videos": [2, 3, 4]
+      "videos": [2, 3, 4, 5, 9, 10]
     }
   ]
 }
