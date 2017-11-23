@@ -55,60 +55,62 @@ class Player {
     // titleNode
 
     const title = document.createElement('h2');
-    const titleNode = document.createTextNode(data.videos[id - 1].title);
-    title.appendChild(titleNode);
-    title.classList.add('text', 'text__playerTitle');
-    this.player.appendChild(title);
+    const node = data.videos[id - 1];
+    if (node) {
+      const titleNode = document.createTextNode(data.videos[id - 1].title);
+      title.appendChild(titleNode);
+      title.classList.add('text', 'text__playerTitle');
+      this.player.appendChild(title);
 
-    // videobox
+      // videobox
 
-    const videoBox = document.createElement('div');
-    videoBox.classList.add('videoBox');
-    this.player.appendChild(videoBox);
+      const videoBox = document.createElement('div');
+      videoBox.classList.add('videoBox');
+      this.player.appendChild(videoBox);
 
-    // video
+      // video
 
-    const source = data.videos[id - 1].video;
-    const currentVideo = document.createElement('video');
-    currentVideo.classList.add('video');
-    currentVideo.src = source;
-    title.appendChild(currentVideo);
-    videoBox.appendChild(currentVideo);
+      const source = data.videos[id - 1].video;
+      const currentVideo = document.createElement('video');
+      currentVideo.classList.add('video');
+      currentVideo.src = source;
+      title.appendChild(currentVideo);
+      videoBox.appendChild(currentVideo);
 
-    const overlay = document.createElement('div');
-    overlay.classList.add('overlay');
-    const overlayButton = document.createElement('div');
-    overlayButton.classList.add('overlayButton', 'playButton');
-    overlay.appendChild(overlayButton);
-    videoBox.appendChild(overlay);
-    const videoHandler = document.querySelector('.videoBox');
-    videoHandler.addEventListener('click', this.playButton.bind(this));
+      const overlay = document.createElement('div');
+      overlay.classList.add('overlay');
+      const overlayButton = document.createElement('div');
+      overlayButton.classList.add('overlayButton', 'playButton');
+      overlay.appendChild(overlayButton);
+      videoBox.appendChild(overlay);
+      const videoHandler = document.querySelector('.videoBox');
+      videoHandler.addEventListener('click', this.playButton.bind(this));
 
-    this.buttons = document.createElement('div');
-    this.buttons.classList.add('buttons');
-    this.player.appendChild(this.buttons);
+      this.buttons = document.createElement('div');
+      this.buttons.classList.add('buttons');
+      this.player.appendChild(this.buttons);
 
-    const back = document.createElement('a');
-    back.classList.add('text', 'text__home');
-    back.setAttribute('href', '..');
-    back.appendChild(document.createTextNode('Til baka'));
-    this.player.appendChild(back);
+      const back = document.createElement('a');
+      back.classList.add('text', 'text__home');
+      back.setAttribute('href', '..');
+      back.appendChild(document.createTextNode('Til baka'));
+      this.player.appendChild(back);
 
-    currentVideo.addEventListener('ended', this.playButton.bind(this));
+      currentVideo.addEventListener('ended', this.playButton.bind(this));
 
-    // gera takka
-    const buttons = ['backButton', 'playButton', 'muteButton',
-      'fullscrButton', 'nextButton'];
+      // gera takka
+      const buttons = ['backButton', 'playButton', 'muteButton',
+        'fullscrButton', 'nextButton'];
 
-    buttons.forEach((item) => {
-      this.createButton(item);
-    });
-  }
-
-  // Ef vídeó er ekki til ( id er ekki í videos.json ) er skilaboð um það birt.
-
-  errorMessage() {
-
+      buttons.forEach((item) => {
+        this.createButton(item);
+      });
+    } else {
+      const titleNode = document.createTextNode('Videó er ekki til');
+      title.appendChild(titleNode);
+      title.classList.add('text', 'text__playerTitle');
+      this.player.appendChild(title);
+    }
   }
 
   // Spila takki, ef videó er ekki að spila er það spilað,
