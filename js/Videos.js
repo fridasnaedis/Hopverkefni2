@@ -1,11 +1,11 @@
 class Videos {
   constructor() {
     this.categories = document.querySelector('.categories');
-    this.player = document.querySelector('.player');
   }
 
 
   createCategories(data) {
+    this.clear();
     const categories = data.categories;
 
     categories.forEach((thisCategory) => {
@@ -42,6 +42,7 @@ class Videos {
   }
 
   load() {
+    this.onLoad();
     console.log('Testy test :)');
     const request = new XMLHttpRequest();
     request.open('GET', './videos.json',true);
@@ -176,5 +177,18 @@ if(years > 0){
 	   return fyrir.concat(minutes.concat(' mínútum síðan'));
 }}
 
+  }
+
+  onLoad() {
+    const loading = document.createElement('h2');
+    loading.classList.add('text');
+    loading.appendChild(document.createTextNode('Hleð upplýsingum...'));
+    this.categories.appendChild(loading);
+  }
+
+  clear() {
+    while(this.categories.hasChildNodes()) {
+      this.categories.removeChild(this.categories.firstChild);
+    }
   }
 }
