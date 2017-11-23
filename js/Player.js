@@ -136,18 +136,22 @@ class Player {
       const button = document.querySelector('button.playButton');
       console.log('ýtti á play');
       video.play();
-      button.classList.remove('playButton');
-      button.classList.add('pauseButton');
-      overlay__button.classList.remove('playButton');
-      overlay.classList.add('overlay__hidden');
+      if(button.classList.contains('playButton')){
+        button.classList.remove('playButton');
+        button.classList.add('pauseButton');
+        overlay__button.classList.remove('playButton');
+        overlay.classList.add('overlay__hidden');
+      }
     } else {
       const button = document.querySelector('.pauseButton');
       video.pause();
       console.log('ýtti á pause');
-      button.classList.remove('pauseButton');
-      button.classList.add('playButton');
-      overlay.classList.remove('overlay__hidden');
-      overlay__button.classList.add('playButton');
+      if(button.classList.contains('pauseButton')){
+        button.classList.remove('pauseButton');
+        button.classList.add('playButton');
+        overlay.classList.remove('overlay__hidden');
+        overlay__button.classList.add('playButton');
+      }  
     }
 
   }
@@ -197,14 +201,19 @@ class Player {
     if (video.muted) {
       const button = document.querySelector('.unmuteButton');
       video.muted = false;
-      button.classList.remove('unmuteButton');
-      button.classList.add('muteButton');
+      if(button.classList.contains('unmuteButton')){
+        button.classList.remove('unmuteButton');
+        button.classList.add('muteButton');
+      }
       //this.video.classList.remove('.mute');
     } else {
       const button = document.querySelector('.muteButton');
       video.muted = true;
-      button.classList.remove('muteButton');
-      button.classList.add('unmuteButton');
+      if(button.classList.contains('muteButton')){
+        button.classList.remove('muteButton');
+        button.classList.add('unmuteButton');
+      }
+
       //  this.video.classList.add('.mute');
     }
   }
