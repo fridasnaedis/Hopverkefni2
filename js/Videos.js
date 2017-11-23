@@ -5,6 +5,7 @@ class Videos {
   }
 
   // náum í JSON
+
   load() {
     this.onLoad();
 
@@ -19,6 +20,7 @@ class Videos {
   }
 
   // Búum til þau catagories sem eru í JSON skránni
+
   createCategories(data) {
     this.clear();
 
@@ -57,6 +59,7 @@ class Videos {
   }
 
   // Gerum clickable skjáskot af myndbandi
+
   createVideos(data, videoId) {
     const videoName = data.videos[videoId].title;
     const videoDuration = data.videos[videoId].duration;
@@ -106,6 +109,7 @@ class Videos {
 
   // Tekur lengd inn í sekúndum
   // skilar í mínútum og sekúndum
+
   parseLength(duration) {
     const minutes = Math.floor(duration / 60);
     const seconds = duration - (minutes * 60);
@@ -124,6 +128,7 @@ class Videos {
 
   // Tekur inn upload tíma í millisekúndum
   // skilar námunudum tíma í árum, mánuðum, vikum o.s.frv eftir hvað á við
+
   parseDate(videoAge) {
     const timeSince = Math.floor((new Date() - videoAge) / 1000);
     const minutes = Math.floor(timeSince / 60);
@@ -168,6 +173,7 @@ class Videos {
   }
 
   // Sýnir að verið sé að sækja uppýsingar fyrir síðu
+
   onLoad() {
     const loading = document.createElement('h2');
     loading.classList.add('text');
@@ -176,6 +182,7 @@ class Videos {
   }
 
   // Hreinsar allt út af síðu nema heading mynd
+
   clear() {
     while (this.categories.hasChildNodes()) {
       this.categories.removeChild(this.categories.firstChild);
