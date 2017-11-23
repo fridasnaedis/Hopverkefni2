@@ -79,10 +79,23 @@ class Player {
         this.createButton(item);
       });
     } else {
-      const titleNode = document.createTextNode('Videó er ekki til');
+      const titleNode = document.createTextNode('Þetta myndband er ekki til');
+      const el = document.createElement('p');
+      const palli = document.createTextNode('En hér er mynd af Palla í staðin:');
+      const mynd = document.createElement('img');
+      mynd.src = './img/palli2.png';
+      mynd.classList.add('errorMynd');
+
+
+      el.appendChild(palli);
       title.appendChild(titleNode);
+
       title.classList.add('text', 'text__playerTitle');
+      el.classList.add('text');
+
       this.player.appendChild(title);
+      this.player.appendChild(el);
+      this.player.appendChild(mynd);
     }
   }
 
