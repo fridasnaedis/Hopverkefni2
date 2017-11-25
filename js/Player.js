@@ -26,7 +26,7 @@ class Player {
 
     // titleNode
 
-    const title = document.createElement('h2');
+    const title = document.createElement('h1');
     const node = data.videos[id - 1];
     if (node) {
       const titleNode = document.createTextNode(data.videos[id - 1].title);
@@ -37,7 +37,7 @@ class Player {
       // Setja titil í tabtexta
 
       const htmlTitle = document.querySelector('.videoTitle');
-      htmlTitle.appendChild(titleNode);
+      htmlTitle.appendChild(document.createTextNode(data.videos[id - 1].title));
 
 
       // videobox
@@ -77,7 +77,7 @@ class Player {
 
       const back = document.createElement('a');
       back.classList.add('text', 'text__home');
-      back.setAttribute('href', '..');
+      back.setAttribute('href', './.');
       back.appendChild(document.createTextNode('Til baka'));
       this.player.appendChild(back);
 
@@ -106,18 +106,23 @@ class Player {
     switch (buttonName) {
       case 'playButton':
         button.addEventListener('click', this.playButton.bind(this));
+        button.setAttribute('aria-label', 'Play/pause');
         break;
       case 'muteButton':
         button.addEventListener('click', this.muteButton.bind(this));
+        button.setAttribute('aria-label', 'Mute/unmute');
         break;
       case 'nextButton':
         button.addEventListener('click', this.nextButton.bind(this));
+        button.setAttribute('aria-label', 'Fast-forward 3 sec');
         break;
       case 'backButton':
         button.addEventListener('click', this.backButton.bind(this));
+        button.setAttribute('aria-label', 'Rewind 3 sec');
         break;
       case 'fullscrButton':
         button.addEventListener('click', this.fullscrButton.bind(this));
+        button.setAttribute('aria-label', 'Fullscreen');
         break;
       default:
     }
@@ -221,11 +226,12 @@ class Player {
   // Fall sem sýnir villumeldingu ef id er ekki til
 
   errorMsg() {
-    const title = document.createElement('h2');
-
+    const title = document.createElement('h1');
+    const htmlTitle = document.querySelector('.videoTitle');
+    htmlTitle.appendChild(document.createTextNode('Ekkert myndband fannst'));
     const titleNode = document.createTextNode('Þetta myndband er ekki til');
     const el = document.createElement('p');
-    const palli = document.createTextNode('En hér er mynd af Palla í staðin:');
+    const palli = document.createTextNode('En hér er mynd af Palla í staðinn:');
     const mynd = document.createElement('img');
     mynd.src = './img/palli2.png';
     mynd.classList.add('errorMynd');

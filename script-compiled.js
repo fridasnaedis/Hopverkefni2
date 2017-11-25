@@ -42,7 +42,7 @@ var Player = function () {
 
       // titleNode
 
-      var title = document.createElement('h2');
+      var title = document.createElement('h1');
       var node = data.videos[id - 1];
       if (node) {
         var titleNode = document.createTextNode(data.videos[id - 1].title);
@@ -53,7 +53,7 @@ var Player = function () {
         // Setja titil í tabtexta
 
         var htmlTitle = document.querySelector('.videoTitle');
-        htmlTitle.appendChild(titleNode);
+        htmlTitle.appendChild(document.createTextNode(data.videos[id - 1].title));
 
         // videobox
 
@@ -92,7 +92,7 @@ var Player = function () {
 
         var back = document.createElement('a');
         back.classList.add('text', 'text__home');
-        back.setAttribute('href', '..');
+        back.setAttribute('href', './.');
         back.appendChild(document.createTextNode('Til baka'));
         this.player.appendChild(back);
 
@@ -122,18 +122,23 @@ var Player = function () {
       switch (buttonName) {
         case 'playButton':
           button.addEventListener('click', this.playButton.bind(this));
+          button.setAttribute('aria-label', 'Play/pause');
           break;
         case 'muteButton':
           button.addEventListener('click', this.muteButton.bind(this));
+          button.setAttribute('aria-label', 'Mute/unmute');
           break;
         case 'nextButton':
           button.addEventListener('click', this.nextButton.bind(this));
+          button.setAttribute('aria-label', 'Fast-forward 3 sec');
           break;
         case 'backButton':
           button.addEventListener('click', this.backButton.bind(this));
+          button.setAttribute('aria-label', 'Rewind 3 sec');
           break;
         case 'fullscrButton':
           button.addEventListener('click', this.fullscrButton.bind(this));
+          button.setAttribute('aria-label', 'Fullscreen');
           break;
         default:
       }
@@ -251,11 +256,12 @@ var Player = function () {
   }, {
     key: 'errorMsg',
     value: function errorMsg() {
-      var title = document.createElement('h2');
-
+      var title = document.createElement('h1');
+      var htmlTitle = document.querySelector('.videoTitle');
+      htmlTitle.appendChild(document.createTextNode('Ekkert myndband fannst'));
       var titleNode = document.createTextNode('Þetta myndband er ekki til');
       var el = document.createElement('p');
-      var palli = document.createTextNode('En hér er mynd af Palla í staðin:');
+      var palli = document.createTextNode('En hér er mynd af Palla í staðinn:');
       var mynd = document.createElement('img');
       mynd.src = './img/palli2.png';
       mynd.classList.add('errorMynd');
@@ -371,6 +377,7 @@ var Videos = function () {
       var videoImg = document.createElement('img');
       videoImg.src = videoImgUrl;
       videoImg.classList.add('card__videoImg');
+      videoImg.alt = videoName;
       videoPoster.appendChild(videoImg);
 
       var lengthFlex = document.createElement('div');
@@ -387,7 +394,7 @@ var Videos = function () {
       videoDescription.classList.add('card__videoDescription');
       videoCard.appendChild(videoDescription);
 
-      var videoTitle = document.createElement('h3');
+      var videoTitle = document.createElement('div');
       videoTitle.classList.add('text', 'text__videoTitle');
       videoTitle.appendChild(document.createTextNode(videoName));
       videoDescription.appendChild(videoTitle);

@@ -77,6 +77,7 @@ class Videos {
     const videoImg = document.createElement('img');
     videoImg.src = videoImgUrl;
     videoImg.classList.add('card__videoImg');
+    videoImg.alt = videoName;
     videoPoster.appendChild(videoImg);
 
     const lengthFlex = document.createElement('div');
@@ -93,7 +94,7 @@ class Videos {
     videoDescription.classList.add('card__videoDescription');
     videoCard.appendChild(videoDescription);
 
-    const videoTitle = document.createElement('h3');
+    const videoTitle = document.createElement('div');
     videoTitle.classList.add('text', 'text__videoTitle');
     videoTitle.appendChild(document.createTextNode(videoName));
     videoDescription.appendChild(videoTitle);
