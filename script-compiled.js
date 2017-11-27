@@ -275,6 +275,12 @@ var Player = function () {
       this.player.appendChild(title);
       this.player.appendChild(el);
       this.player.appendChild(mynd);
+
+      var back = document.createElement('a');
+      back.classList.add('text', 'text__home');
+      back.setAttribute('href', './.');
+      back.appendChild(document.createTextNode('Til baka'));
+      this.player.appendChild(back);
     }
   }]);
 
